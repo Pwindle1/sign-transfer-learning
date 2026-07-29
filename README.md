@@ -3,9 +3,9 @@
 **Hand-dominance canonicalization for cross-lingual sign language transfer, and the
 tracking-failure audit that keeps it honest.**
 
-Companion code for the write-up *[Which Hand Is Not in the Lexicon](https://matteolanzablog.com)*.
+Companion code for the write-up *(https://matteolanzablog.com)*.
 
-## The idea in three sentences
+## In brief:
 
 No sign language distinguishes two words by which hand performs them, so a recogniser is free to
 mirror every clip until the busy hand is always on the same side, and because skeleton networks
