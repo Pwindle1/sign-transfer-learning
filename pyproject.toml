@@ -1,0 +1,21 @@
+[project]
+name = "signcanon"
+version = "1.0.0"
+description = "Hand-dominance canonicalization for cross-lingual sign language transfer, and the tracking-failure audit behind it"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = ["numpy>=1.24", "torch>=2.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
