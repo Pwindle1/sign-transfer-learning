@@ -1,7 +1,6 @@
 # signcanon
 
-**Hand-dominance canonicalization for cross-lingual sign language transfer, and the
-tracking-failure audit that keeps it honest.**
+**Hand-dominance canonicalization for cross-lingual sign language transfer.**
 
 Companion code for the write-up *(https://matteolanzablog.com)*.
 
