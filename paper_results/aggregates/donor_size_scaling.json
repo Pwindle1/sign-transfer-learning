@@ -1,0 +1,47 @@
+{
+ "method": "full_ft",
+ "n_common_cells": 54,
+ "curve": [
+  {
+   "donor_clips": 7910,
+   "standard": 31.9496,
+   "canonical": 35.4881,
+   "gain": 3.5385,
+   "n_standard_donors": 1,
+   "n_canonical_donors": 1
+  },
+  {
+   "donor_clips": 15820,
+   "standard": 35.0875,
+   "canonical": 39.5818,
+   "gain": 4.4943,
+   "n_standard_donors": 1,
+   "n_canonical_donors": 1
+  },
+  {
+   "donor_clips": 26157,
+   "standard": 39.0146,
+   "canonical": 44.9562,
+   "gain": 5.9415,
+   "n_standard_donors": 4,
+   "n_canonical_donors": 4
+  }
+ ],
+ "log_linear_fit_standard_arm": {
+  "slope_points_per_efold": 5.8231,
+  "intercept": -20.5838,
+  "r2": 0.9759,
+  "n_points": 3
+ },
+ "data_equivalence": {
+  "canonical_score_at_full_donor": 44.9562,
+  "standard_clips_required": 77278,
+  "actual_donor_clips": 26157,
+  "multiple": 2.95
+ },
+ "caveats": [
+  "the fit uses three donor sizes, so it is descriptive, not an estimate with a standard error",
+  "it assumes transfer is linear in log(donor clips), which we verified only over a 3.3x range",
+  "the equivalence extrapolates about 3x beyond the largest donor corpus we trained on"
+ ]
+}

@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this code or these results, please cite the paper."
+title: "signcanon: dominance canonicalization for cross-lingual sign language transfer"
+authors:
+  - family-names: Lanza
+    given-names: Matteo
+repository-code: "https://github.com/Pwindle1/sign-transfer-learning"
+license: MIT
+version: 1.1.0
+preferred-citation:
+  type: conference-paper
+  title: "Using Sign Phonology to Improve Few-Shot Cross-Lingual Transfer Learning for Sign Language Recognition"
+  authors:
+    - family-names: Lanza
+      given-names: Matteo
+  collection-title: "Proceedings of the Workshop on Sign Language Processing (WSLP 2026)"
+  year: 2026

@@ -1,0 +1,42 @@
+{
+ "standard": {
+  "raw_left_zeroed": {
+   "mean_pct": 12.53,
+   "per_donor_pct": [
+    12.54,
+    12.84,
+    12.23,
+    12.49
+   ]
+  },
+  "raw_right_zeroed": {
+   "mean_pct": 34.21,
+   "per_donor_pct": [
+    33.5,
+    31.98,
+    35.76,
+    35.6
+   ]
+  }
+ },
+ "canonical": {
+  "canonical_left_zeroed": {
+   "mean_pct": 36.87,
+   "per_donor_pct": [
+    37.7,
+    35.06,
+    41.68,
+    33.03
+   ]
+  },
+  "canonical_right_zeroed": {
+   "mean_pct": 17.98,
+   "per_donor_pct": [
+    18.21,
+    18.43,
+    16.69,
+    18.6
+   ]
+  }
+ }
+}

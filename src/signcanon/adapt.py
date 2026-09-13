@@ -14,6 +14,7 @@ def _device():
 
 
 def embed(net, inputs, batch_size: int = 128) -> np.ndarray:
+    """Frozen donor features: global-average-pooled output of the last graph-conv block."""
     import torch
 
     device = _device()
@@ -42,6 +43,8 @@ def prototype_accuracy(
     test_embeddings: np.ndarray,
     test_labels: np.ndarray,
 ) -> float:
+    """Frozen-prototype regime: nearest L2-normalised class mean, no training."""
+
     def normalize(x):
         return x / (np.linalg.norm(x, axis=1, keepdims=True) + 1e-8)
 
@@ -62,7 +65,17 @@ def full_finetune(
     epochs: int = 30,
     lr: float = 0.01,
     batch_size: int = 128,
+    eval_at: tuple[int, ...] | None = None,
+    eval_fn=None,
 ):
+    """Recipient-side fine-tune regime (paper Appendix C.2): every donor weight except the classifier
+    head is loaded, then all weights train on the support set with SGD (lr 0.01, momentum 0.9, weight
+    decay 1e-4), batch 128, 30 epochs, no schedule.
+
+    Passing an EMPTY donor_state yields the no-donor baseline (paper Appendix A.5): load_state_dict of
+    an empty dict is a no-op, so the network trains from its random initialisation through exactly
+    this code path. eval_at / eval_fn optionally score the SAME trajectory at intermediate epoch
+    budgets; the function then returns (net, {epoch: score})."""
     import torch
 
     device = _device()
@@ -73,7 +86,9 @@ def full_finetune(
     criterion = torch.nn.CrossEntropyLoss()
     targets = torch.tensor(support_labels)
     n = len(support_labels)
-    for _ in range(epochs):
+    marks = set(int(e) for e in (eval_at or ()))
+    checkpoints: dict[int, float] = {}
+    for epoch in range(epochs):
         order = torch.randperm(n)
         for i in range(0, n, batch_size):
             batch = order[i : i + batch_size]
@@ -81,6 +96,11 @@ def full_finetune(
             loss = criterion(net(support_inputs[batch].float().to(device)), targets[batch].long().to(device))
             loss.backward()
             optimizer.step()
+        if (epoch + 1) in marks and eval_fn is not None:
+            checkpoints[epoch + 1] = float(eval_fn(net))
+            net.train()
+    if marks:
+        return net, checkpoints
     return net
 
 

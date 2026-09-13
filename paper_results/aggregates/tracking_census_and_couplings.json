@@ -1,0 +1,762 @@
+{
+ "definitions": {
+  "hysteresis": 1.2,
+  "decidability_threshold": 0.5,
+  "presence_threshold": 0.5,
+  "mi_shuffle_replicates": 20
+ },
+ "corpora": [
+  {
+   "corpus": "autsl_oh",
+   "n_clips": 31610,
+   "n_glosses": 226,
+   "n_signers": 37,
+   "has_signer_ids": true,
+   "whole_clip_loss": {
+    "left_pct": 0.089,
+    "right_pct": 0.032,
+    "either_pct": 0.12,
+    "both_pct": 0.0
+   },
+   "conventions": {
+    "strict_00_undecidable": {
+     "flip_rate_all": 0.5681,
+     "flip_rate_decidable": 0.8801,
+     "decidable_fraction": 0.4654,
+     "corrupt_share_of_decidable": 0.26,
+     "flips_with_other_hand_lost_pct": 0.06,
+     "nonflips_that_could_not_flip_pct": 0.21,
+     "I_decidable_gloss": {
+      "mi": 0.8209,
+      "bias_floor": 0.005,
+      "ratio_to_floor": 164.15
+     },
+     "I_decidable_signer": {
+      "mi": 0.0028,
+      "bias_floor": 0.00083,
+      "ratio_to_floor": 3.39
+     },
+     "I_flip_signer_all": {
+      "mi": 0.12666,
+      "bias_floor": 0.00083,
+      "ratio_to_floor": 152.73
+     },
+     "I_flip_gloss_all": {
+      "mi": 0.40678,
+      "bias_floor": 0.00517,
+      "ratio_to_floor": 78.64
+     },
+     "I_flip_gloss_decidable": {
+      "mi": 0.01045,
+      "bias_floor": 0.00857,
+      "ratio_to_floor": 1.22
+     },
+     "I_flip_signer_decidable": {
+      "mi": 0.45673,
+      "bias_floor": 0.00178,
+      "ratio_to_floor": 256.44
+     },
+     "I_flip_gloss_undecidable": {
+      "mi": 0.28464,
+      "bias_floor": 0.00943,
+      "ratio_to_floor": 30.2
+     },
+     "I_flip_signer_undecidable": {
+      "mi": 0.04894,
+      "bias_floor": 0.00147,
+      "ratio_to_floor": 33.34
+     },
+     "flip_rate_on_undecidable": 0.2966,
+     "share_of_flips_on_undecidable": 0.2791
+    },
+    "lenient_00_decidable": {
+     "flip_rate_all": 0.5681,
+     "flip_rate_decidable": 0.8801,
+     "decidable_fraction": 0.4654,
+     "corrupt_share_of_decidable": 0.26,
+     "flips_with_other_hand_lost_pct": 0.06,
+     "nonflips_that_could_not_flip_pct": 0.21,
+     "I_decidable_gloss": {
+      "mi": 0.8209,
+      "bias_floor": 0.00488,
+      "ratio_to_floor": 168.31
+     },
+     "I_decidable_signer": {
+      "mi": 0.0028,
+      "bias_floor": 0.00086,
+      "ratio_to_floor": 3.27
+     },
+     "I_flip_signer_all": {
+      "mi": 0.12666,
+      "bias_floor": 0.00087,
+      "ratio_to_floor": 145.7
+     },
+     "I_flip_gloss_all": {
+      "mi": 0.40678,
+      "bias_floor": 0.00524,
+      "ratio_to_floor": 77.64
+     },
+     "I_flip_gloss_decidable": {
+      "mi": 0.01045,
+      "bias_floor": 0.00874,
+      "ratio_to_floor": 1.2
+     },
+     "I_flip_signer_decidable": {
+      "mi": 0.45673,
+      "bias_floor": 0.0018,
+      "ratio_to_floor": 254.12
+     },
+     "I_flip_gloss_undecidable": {
+      "mi": 0.28464,
+      "bias_floor": 0.00983,
+      "ratio_to_floor": 28.96
+     },
+     "I_flip_signer_undecidable": {
+      "mi": 0.04894,
+      "bias_floor": 0.00164,
+      "ratio_to_floor": 29.83
+     },
+     "flip_rate_on_undecidable": 0.2966,
+     "share_of_flips_on_undecidable": 0.2791
+    }
+   }
+  },
+  {
+   "corpus": "include_oh",
+   "n_clips": 4284,
+   "n_glosses": 264,
+   "n_signers": 1,
+   "has_signer_ids": false,
+   "whole_clip_loss": {
+    "left_pct": 0.303,
+    "right_pct": 0.0,
+    "either_pct": 0.303,
+    "both_pct": 0.0
+   },
+   "conventions": {
+    "strict_00_undecidable": {
+     "flip_rate_all": 0.0166,
+     "flip_rate_decidable": 0.0027,
+     "decidable_fraction": 0.4262,
+     "corrupt_share_of_decidable": 0.71,
+     "flips_with_other_hand_lost_pct": 0.0,
+     "nonflips_that_could_not_flip_pct": 0.31,
+     "I_decidable_gloss": {
+      "mi": 0.8881,
+      "bias_floor": 0.04724,
+      "ratio_to_floor": 18.8
+     },
+     "I_flip_gloss_all": {
+      "mi": 0.05115,
+      "bias_floor": 0.03566,
+      "ratio_to_floor": 1.43
+     },
+     "I_flip_gloss_decidable": {
+      "mi": 0.02219,
+      "bias_floor": 0.01269,
+      "ratio_to_floor": 1.75
+     },
+     "I_flip_gloss_undecidable": {
+      "mi": 0.06336,
+      "bias_floor": 0.04409,
+      "ratio_to_floor": 1.44
+     },
+     "flip_rate_on_undecidable": 0.0269,
+     "share_of_flips_on_undecidable": 0.9296
+    },
+    "lenient_00_decidable": {
+     "flip_rate_all": 0.0166,
+     "flip_rate_decidable": 0.0027,
+     "decidable_fraction": 0.4262,
+     "corrupt_share_of_decidable": 0.71,
+     "flips_with_other_hand_lost_pct": 0.0,
+     "nonflips_that_could_not_flip_pct": 0.31,
+     "I_decidable_gloss": {
+      "mi": 0.8881,
+      "bias_floor": 0.047,
+      "ratio_to_floor": 18.89
+     },
+     "I_flip_gloss_all": {
+      "mi": 0.05115,
+      "bias_floor": 0.03554,
+      "ratio_to_floor": 1.44
+     },
+     "I_flip_gloss_decidable": {
+      "mi": 0.02219,
+      "bias_floor": 0.01301,
+      "ratio_to_floor": 1.71
+     },
+     "I_flip_gloss_undecidable": {
+      "mi": 0.06336,
+      "bias_floor": 0.04452,
+      "ratio_to_floor": 1.42
+     },
+     "flip_rate_on_undecidable": 0.0269,
+     "share_of_flips_on_undecidable": 0.9296
+    }
+   }
+  },
+  {
+   "corpus": "slovo",
+   "n_clips": 2400,
+   "n_glosses": 120,
+   "n_signers": 106,
+   "has_signer_ids": true,
+   "whole_clip_loss": {
+    "left_pct": 10.667,
+    "right_pct": 9.833,
+    "either_pct": 20.25,
+    "both_pct": 0.25
+   },
+   "conventions": {
+    "strict_00_undecidable": {
+     "flip_rate_all": 0.3454,
+     "flip_rate_decidable": 0.4289,
+     "decidable_fraction": 0.5129,
+     "corrupt_share_of_decidable": 38.75,
+     "flips_with_other_hand_lost_pct": 27.5,
+     "nonflips_that_could_not_flip_pct": 16.3,
+     "I_decidable_gloss": {
+      "mi": 0.53245,
+      "bias_floor": 0.03551,
+      "ratio_to_floor": 14.99
+     },
+     "I_decidable_signer": {
+      "mi": 0.03397,
+      "bias_floor": 0.03612,
+      "ratio_to_floor": 0.94
+     },
+     "I_flip_signer_all": {
+      "mi": 0.16276,
+      "bias_floor": 0.03647,
+      "ratio_to_floor": 4.46
+     },
+     "I_flip_gloss_all": {
+      "mi": 0.06878,
+      "bias_floor": 0.03872,
+      "ratio_to_floor": 1.78
+     },
+     "I_flip_gloss_decidable": {
+      "mi": 0.06252,
+      "bias_floor": 0.07078,
+      "ratio_to_floor": 0.88
+     },
+     "I_flip_signer_decidable": {
+      "mi": 0.4026,
+      "bias_floor": 0.06656,
+      "ratio_to_floor": 6.05
+     },
+     "I_flip_gloss_undecidable": {
+      "mi": 0.0878,
+      "bias_floor": 0.07549,
+      "ratio_to_floor": 1.16
+     },
+     "I_flip_signer_undecidable": {
+      "mi": 0.0815,
+      "bias_floor": 0.06581,
+      "ratio_to_floor": 1.24
+     },
+     "flip_rate_on_undecidable": 0.2575,
+     "share_of_flips_on_undecidable": 0.3631
+    },
+    "lenient_00_decidable": {
+     "flip_rate_all": 0.3454,
+     "flip_rate_decidable": 0.4258,
+     "decidable_fraction": 0.5167,
+     "corrupt_share_of_decidable": 39.19,
+     "flips_with_other_hand_lost_pct": 27.5,
+     "nonflips_that_could_not_flip_pct": 16.3,
+     "I_decidable_gloss": {
+      "mi": 0.54323,
+      "bias_floor": 0.03847,
+      "ratio_to_floor": 14.12
+     },
+     "I_decidable_signer": {
+      "mi": 0.03341,
+      "bias_floor": 0.03539,
+      "ratio_to_floor": 0.94
+     },
+     "I_flip_signer_all": {
+      "mi": 0.16276,
+      "bias_floor": 0.03643,
+      "ratio_to_floor": 4.47
+     },
+     "I_flip_gloss_all": {
+      "mi": 0.06878,
+      "bias_floor": 0.03609,
+      "ratio_to_floor": 1.91
+     },
+     "I_flip_gloss_decidable": {
+      "mi": 0.05889,
+      "bias_floor": 0.06919,
+      "ratio_to_floor": 0.85
+     },
+     "I_flip_signer_decidable": {
+      "mi": 0.39855,
+      "bias_floor": 0.06906,
+      "ratio_to_floor": 5.77
+     },
+     "I_flip_gloss_undecidable": {
+      "mi": 0.08945,
+      "bias_floor": 0.07563,
+      "ratio_to_floor": 1.18
+     },
+     "I_flip_signer_undecidable": {
+      "mi": 0.08286,
+      "bias_floor": 0.06504,
+      "ratio_to_floor": 1.27
+     },
+     "flip_rate_on_undecidable": 0.2595,
+     "share_of_flips_on_undecidable": 0.3631
+    }
+   }
+  },
+  {
+   "corpus": "wlasl_oh",
+   "n_clips": 5117,
+   "n_glosses": 300,
+   "n_signers": 109,
+   "has_signer_ids": true,
+   "whole_clip_loss": {
+    "left_pct": 31.014,
+    "right_pct": 0.977,
+    "either_pct": 31.894,
+    "both_pct": 0.098
+   },
+   "conventions": {
+    "strict_00_undecidable": {
+     "flip_rate_all": 0.1079,
+     "flip_rate_decidable": 0.0535,
+     "decidable_fraction": 0.4567,
+     "corrupt_share_of_decidable": 69.45,
+     "flips_with_other_hand_lost_pct": 8.15,
+     "nonflips_that_could_not_flip_pct": 34.76,
+     "I_decidable_gloss": {
+      "mi": 0.53813,
+      "bias_floor": 0.04312,
+      "ratio_to_floor": 12.48
+     },
+     "I_decidable_signer": {
+      "mi": 0.03804,
+      "bias_floor": 0.01734,
+      "ratio_to_floor": 2.19
+     },
+     "I_flip_signer_all": {
+      "mi": 0.07898,
+      "bias_floor": 0.01575,
+      "ratio_to_floor": 5.02
+     },
+     "I_flip_gloss_all": {
+      "mi": 0.09472,
+      "bias_floor": 0.04922,
+      "ratio_to_floor": 1.92
+     },
+     "I_flip_gloss_decidable": {
+      "mi": 0.1179,
+      "bias_floor": 0.07035,
+      "ratio_to_floor": 1.68
+     },
+     "I_flip_signer_decidable": {
+      "mi": 0.16088,
+      "bias_floor": 0.02656,
+      "ratio_to_floor": 6.06
+     },
+     "I_flip_gloss_undecidable": {
+      "mi": 0.09257,
+      "bias_floor": 0.07018,
+      "ratio_to_floor": 1.32
+     },
+     "I_flip_signer_undecidable": {
+      "mi": 0.0732,
+      "bias_floor": 0.02884,
+      "ratio_to_floor": 2.54
+     },
+     "flip_rate_on_undecidable": 0.1536,
+     "share_of_flips_on_undecidable": 0.7736
+    },
+    "lenient_00_decidable": {
+     "flip_rate_all": 0.1079,
+     "flip_rate_decidable": 0.0533,
+     "decidable_fraction": 0.4585,
+     "corrupt_share_of_decidable": 69.57,
+     "flips_with_other_hand_lost_pct": 8.15,
+     "nonflips_that_could_not_flip_pct": 34.76,
+     "I_decidable_gloss": {
+      "mi": 0.54444,
+      "bias_floor": 0.04405,
+      "ratio_to_floor": 12.36
+     },
+     "I_decidable_signer": {
+      "mi": 0.03898,
+      "bias_floor": 0.0175,
+      "ratio_to_floor": 2.23
+     },
+     "I_flip_signer_all": {
+      "mi": 0.07898,
+      "bias_floor": 0.01602,
+      "ratio_to_floor": 4.93
+     },
+     "I_flip_gloss_all": {
+      "mi": 0.09472,
+      "bias_floor": 0.04916,
+      "ratio_to_floor": 1.93
+     },
+     "I_flip_gloss_decidable": {
+      "mi": 0.11673,
+      "bias_floor": 0.06965,
+      "ratio_to_floor": 1.68
+     },
+     "I_flip_signer_decidable": {
+      "mi": 0.16026,
+      "bias_floor": 0.02623,
+      "ratio_to_floor": 6.11
+     },
+     "I_flip_gloss_undecidable": {
+      "mi": 0.09249,
+      "bias_floor": 0.07075,
+      "ratio_to_floor": 1.31
+     },
+     "I_flip_signer_undecidable": {
+      "mi": 0.07372,
+      "bias_floor": 0.03017,
+      "ratio_to_floor": 2.44
+     },
+     "flip_rate_on_undecidable": 0.1541,
+     "share_of_flips_on_undecidable": 0.7736
+    }
+   }
+  },
+  {
+   "corpus": "bdslw60",
+   "n_clips": 4643,
+   "n_glosses": 60,
+   "n_signers": 18,
+   "has_signer_ids": true,
+   "whole_clip_loss": {
+    "left_pct": 40.039,
+    "right_pct": 10.747,
+    "either_pct": 48.352,
+    "both_pct": 2.434
+   },
+   "conventions": {
+    "strict_00_undecidable": {
+     "flip_rate_all": 0.2188,
+     "flip_rate_decidable": 0.2056,
+     "decidable_fraction": 0.636,
+     "corrupt_share_of_decidable": 71.18,
+     "flips_with_other_hand_lost_pct": 37.11,
+     "nonflips_that_could_not_flip_pct": 51.25,
+     "I_decidable_gloss": {
+      "mi": 0.37846,
+      "bias_floor": 0.00874,
+      "ratio_to_floor": 43.3
+     },
+     "I_decidable_signer": {
+      "mi": 0.02178,
+      "bias_floor": 0.0027,
+      "ratio_to_floor": 8.06
+     },
+     "I_flip_signer_all": {
+      "mi": 0.11406,
+      "bias_floor": 0.00224,
+      "ratio_to_floor": 50.82
+     },
+     "I_flip_gloss_all": {
+      "mi": 0.05274,
+      "bias_floor": 0.00881,
+      "ratio_to_floor": 5.98
+     },
+     "I_flip_gloss_decidable": {
+      "mi": 0.07641,
+      "bias_floor": 0.01475,
+      "ratio_to_floor": 5.18
+     },
+     "I_flip_signer_decidable": {
+      "mi": 0.22788,
+      "bias_floor": 0.00453,
+      "ratio_to_floor": 50.34
+     },
+     "I_flip_gloss_undecidable": {
+      "mi": 0.06913,
+      "bias_floor": 0.02226,
+      "ratio_to_floor": 3.11
+     },
+     "I_flip_signer_undecidable": {
+      "mi": 0.02398,
+      "bias_floor": 0.00808,
+      "ratio_to_floor": 2.97
+     },
+     "flip_rate_on_undecidable": 0.242,
+     "share_of_flips_on_undecidable": 0.4026
+    },
+    "lenient_00_decidable": {
+     "flip_rate_all": 0.2188,
+     "flip_rate_decidable": 0.196,
+     "decidable_fraction": 0.667,
+     "corrupt_share_of_decidable": 72.49,
+     "flips_with_other_hand_lost_pct": 37.11,
+     "nonflips_that_could_not_flip_pct": 51.25,
+     "I_decidable_gloss": {
+      "mi": 0.47192,
+      "bias_floor": 0.00938,
+      "ratio_to_floor": 50.29
+     },
+     "I_decidable_signer": {
+      "mi": 0.01938,
+      "bias_floor": 0.00247,
+      "ratio_to_floor": 7.85
+     },
+     "I_flip_signer_all": {
+      "mi": 0.11406,
+      "bias_floor": 0.00258,
+      "ratio_to_floor": 44.2
+     },
+     "I_flip_gloss_all": {
+      "mi": 0.05274,
+      "bias_floor": 0.00926,
+      "ratio_to_floor": 5.7
+     },
+     "I_flip_gloss_decidable": {
+      "mi": 0.07303,
+      "bias_floor": 0.01367,
+      "ratio_to_floor": 5.34
+     },
+     "I_flip_signer_decidable": {
+      "mi": 0.21497,
+      "bias_floor": 0.00354,
+      "ratio_to_floor": 60.75
+     },
+     "I_flip_gloss_undecidable": {
+      "mi": 0.04539,
+      "bias_floor": 0.01629,
+      "ratio_to_floor": 2.79
+     },
+     "I_flip_signer_undecidable": {
+      "mi": 0.02143,
+      "bias_floor": 0.00878,
+      "ratio_to_floor": 2.44
+     },
+     "flip_rate_on_undecidable": 0.2646,
+     "share_of_flips_on_undecidable": 0.4026
+    }
+   }
+  },
+  {
+   "corpus": "lsa64",
+   "n_clips": 3200,
+   "n_glosses": 64,
+   "n_signers": 10,
+   "has_signer_ids": true,
+   "whole_clip_loss": {
+    "left_pct": 65.0,
+    "right_pct": 2.062,
+    "either_pct": 65.062,
+    "both_pct": 2.0
+   },
+   "conventions": {
+    "strict_00_undecidable": {
+     "flip_rate_all": 0.0284,
+     "flip_rate_decidable": 0.0032,
+     "decidable_fraction": 0.78,
+     "corrupt_share_of_decidable": 80.69,
+     "flips_with_other_hand_lost_pct": 2.2,
+     "nonflips_that_could_not_flip_pct": 66.9,
+     "I_decidable_gloss": {
+      "mi": 0.45617,
+      "bias_floor": 0.01352,
+      "ratio_to_floor": 33.74
+     },
+     "I_decidable_signer": {
+      "mi": 0.00649,
+      "bias_floor": 0.00176,
+      "ratio_to_floor": 3.68
+     },
+     "I_flip_signer_all": {
+      "mi": 0.00823,
+      "bias_floor": 0.00185,
+      "ratio_to_floor": 4.45
+     },
+     "I_flip_gloss_all": {
+      "mi": 0.06051,
+      "bias_floor": 0.01671,
+      "ratio_to_floor": 3.62
+     },
+     "I_flip_gloss_decidable": {
+      "mi": 0.01199,
+      "bias_floor": 0.0091,
+      "ratio_to_floor": 1.32
+     },
+     "I_flip_signer_decidable": {
+      "mi": 0.00517,
+      "bias_floor": 0.0032,
+      "ratio_to_floor": 1.62
+     },
+     "I_flip_gloss_undecidable": {
+      "mi": 0.0935,
+      "bias_floor": 0.03368,
+      "ratio_to_floor": 2.78
+     },
+     "I_flip_signer_undecidable": {
+      "mi": 0.02694,
+      "bias_floor": 0.00933,
+      "ratio_to_floor": 2.89
+     },
+     "flip_rate_on_undecidable": 0.1179,
+     "share_of_flips_on_undecidable": 0.9121
+    },
+    "lenient_00_decidable": {
+     "flip_rate_all": 0.0284,
+     "flip_rate_decidable": 0.0031,
+     "decidable_fraction": 0.8016,
+     "corrupt_share_of_decidable": 81.17,
+     "flips_with_other_hand_lost_pct": 2.2,
+     "nonflips_that_could_not_flip_pct": 66.9,
+     "I_decidable_gloss": {
+      "mi": 0.47013,
+      "bias_floor": 0.01412,
+      "ratio_to_floor": 33.29
+     },
+     "I_decidable_signer": {
+      "mi": 0.00717,
+      "bias_floor": 0.00194,
+      "ratio_to_floor": 3.7
+     },
+     "I_flip_signer_all": {
+      "mi": 0.00823,
+      "bias_floor": 0.00191,
+      "ratio_to_floor": 4.3
+     },
+     "I_flip_gloss_all": {
+      "mi": 0.06051,
+      "bias_floor": 0.01707,
+      "ratio_to_floor": 3.54
+     },
+     "I_flip_gloss_decidable": {
+      "mi": 0.01085,
+      "bias_floor": 0.0095,
+      "ratio_to_floor": 1.14
+     },
+     "I_flip_signer_decidable": {
+      "mi": 0.00512,
+      "bias_floor": 0.00289,
+      "ratio_to_floor": 1.77
+     },
+     "I_flip_gloss_undecidable": {
+      "mi": 0.09042,
+      "bias_floor": 0.03364,
+      "ratio_to_floor": 2.69
+     },
+     "I_flip_signer_undecidable": {
+      "mi": 0.03256,
+      "bias_floor": 0.01361,
+      "ratio_to_floor": 2.39
+     },
+     "flip_rate_on_undecidable": 0.1307,
+     "share_of_flips_on_undecidable": 0.9121
+    }
+   }
+  },
+  {
+   "corpus": "ssl400",
+   "n_clips": 2433,
+   "n_glosses": 127,
+   "n_signers": 1,
+   "has_signer_ids": false,
+   "whole_clip_loss": {
+    "left_pct": 45.623,
+    "right_pct": 4.768,
+    "either_pct": 47.842,
+    "both_pct": 2.548
+   },
+   "conventions": {
+    "strict_00_undecidable": {
+     "flip_rate_all": 0.1286,
+     "flip_rate_decidable": 0.0783,
+     "decidable_fraction": 0.6297,
+     "corrupt_share_of_decidable": 69.26,
+     "flips_with_other_hand_lost_pct": 14.7,
+     "nonflips_that_could_not_flip_pct": 52.36,
+     "I_decidable_gloss": {
+      "mi": 0.50346,
+      "bias_floor": 0.0389,
+      "ratio_to_floor": 12.94
+     },
+     "I_flip_gloss_all": {
+      "mi": 0.13152,
+      "bias_floor": 0.04127,
+      "ratio_to_floor": 3.19
+     },
+     "I_flip_gloss_decidable": {
+      "mi": 0.16084,
+      "bias_floor": 0.04997,
+      "ratio_to_floor": 3.22
+     },
+     "I_flip_gloss_undecidable": {
+      "mi": 0.11674,
+      "bias_floor": 0.09112,
+      "ratio_to_floor": 1.28
+     },
+     "flip_rate_on_undecidable": 0.2142,
+     "share_of_flips_on_undecidable": 0.6166
+    },
+    "lenient_00_decidable": {
+     "flip_rate_all": 0.1286,
+     "flip_rate_decidable": 0.0732,
+     "decidable_fraction": 0.6741,
+     "corrupt_share_of_decidable": 70.98,
+     "flips_with_other_hand_lost_pct": 14.7,
+     "nonflips_that_could_not_flip_pct": 52.36,
+     "I_decidable_gloss": {
+      "mi": 0.54104,
+      "bias_floor": 0.03998,
+      "ratio_to_floor": 13.53
+     },
+     "I_flip_gloss_all": {
+      "mi": 0.13152,
+      "bias_floor": 0.04323,
+      "ratio_to_floor": 3.04
+     },
+     "I_flip_gloss_decidable": {
+      "mi": 0.13815,
+      "bias_floor": 0.04836,
+      "ratio_to_floor": 2.86
+     },
+     "I_flip_gloss_undecidable": {
+      "mi": 0.10623,
+      "bias_floor": 0.09818,
+      "ratio_to_floor": 1.08
+     },
+     "flip_rate_on_undecidable": 0.2434,
+     "share_of_flips_on_undecidable": 0.6166
+    }
+   }
+  }
+ ],
+ "corpus_level_trends": {
+  "n_corpora": 7,
+  "corpora": [
+   "autsl_oh",
+   "include_oh",
+   "slovo",
+   "wlasl_oh",
+   "bdslw60",
+   "lsa64",
+   "ssl400"
+  ],
+  "decidable_fraction": {
+   "spearman_vs_whole_clip_loss": 0.8214,
+   "exact_two_sided_p": 0.03413,
+   "n_permutations": 5040
+  },
+  "corrupt_share_of_decidable": {
+   "spearman_vs_whole_clip_loss": 0.9643,
+   "exact_two_sided_p": 0.00278,
+   "n_permutations": 5040
+  },
+  "I_decidable_gloss": {
+   "spearman_vs_whole_clip_loss": -0.8929,
+   "exact_two_sided_p": 0.0123,
+   "n_permutations": 5040
+  }
+ }
+}

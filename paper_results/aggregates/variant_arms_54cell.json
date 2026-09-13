@@ -1,0 +1,438 @@
+{
+ "arms_present": [
+  "canonical",
+  "entropy_f0.00",
+  "entropy_f0.20",
+  "entropy_f0.40",
+  "entropy_f0.568",
+  "flip_aug",
+  "gloss_blocked",
+  "natural_standard",
+  "signer_blocked",
+  "signer_majority",
+  "vertical_anchor"
+ ],
+ "arms_missing": {},
+ "results": {
+  "full_ft": {
+   "n_common_cells": 54,
+   "arms": {
+    "natural_standard": {
+     "seeds": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "n_donors": 4,
+     "description": "no transform",
+     "I_chirality_signer": 0.1502,
+     "mean": 39.0146,
+     "sd": 1.0468,
+     "per_donor": [
+      40.185,
+      37.6761,
+      38.862,
+      39.3353
+     ],
+     "gain_over_natural": 0.0,
+     "pct_of_canonical_effect": 0.0
+    },
+    "canonical": {
+     "seeds": [
+      90,
+      94,
+      12,
+      13
+     ],
+     "n_donors": 4,
+     "description": "mirror iff e_L > 1.2 e_R (headline clean quad; s10 retired)",
+     "I_chirality_signer": 0.0,
+     "mean": 44.9562,
+     "sd": 0.4575,
+     "per_donor": [
+      44.2897,
+      45.0244,
+      45.2641,
+      45.2465
+     ],
+     "gain_over_natural": 5.9416,
+     "pct_of_canonical_effect": 100.0
+    },
+    "entropy_f0.00": {
+     "seeds": [
+      50
+     ],
+     "n_donors": 1,
+     "description": "canonicalize all (no hysteresis)",
+     "I_chirality_signer": 0.0,
+     "mean": 44.3024,
+     "sd": null,
+     "per_donor": [
+      44.3024
+     ],
+     "gain_over_natural": 5.2878,
+     "pct_of_canonical_effect": 89.0
+    },
+    "entropy_f0.20": {
+     "seeds": [
+      51,
+      54,
+      55
+     ],
+     "n_donors": 3,
+     "description": "re-mirror random 20%",
+     "I_chirality_signer": 0.0006,
+     "mean": 46.9169,
+     "sd": 0.672,
+     "per_donor": [
+      47.4251,
+      47.1707,
+      46.155
+     ],
+     "gain_over_natural": 7.9023,
+     "pct_of_canonical_effect": 133.0
+    },
+    "entropy_f0.40": {
+     "seeds": [
+      52
+     ],
+     "n_donors": 1,
+     "description": "re-mirror random 40%",
+     "I_chirality_signer": null,
+     "mean": 45.4193,
+     "sd": null,
+     "per_donor": [
+      45.4193
+     ],
+     "gain_over_natural": 6.4047,
+     "pct_of_canonical_effect": 107.8
+    },
+    "entropy_f0.568": {
+     "seeds": [
+      53,
+      56,
+      57
+     ],
+     "n_donors": 3,
+     "description": "re-mirror random 56.8% (natural rate)",
+     "I_chirality_signer": 0.0011,
+     "mean": 43.6929,
+     "sd": 0.5067,
+     "per_donor": [
+      43.7474,
+      44.1702,
+      43.1611
+     ],
+     "gain_over_natural": 4.6783,
+     "pct_of_canonical_effect": 78.7
+    },
+    "signer_blocked": {
+     "seeds": [
+      70,
+      71,
+      72
+     ],
+     "n_donors": 3,
+     "description": "re-mirror whole signers to 56.8%",
+     "I_chirality_signer": 0.4358,
+     "mean": 42.5917,
+     "sd": 0.193,
+     "per_donor": [
+      42.7592,
+      42.6354,
+      42.3806
+     ],
+     "gain_over_natural": 3.5771,
+     "pct_of_canonical_effect": 60.2
+    },
+    "gloss_blocked": {
+     "seeds": [
+      75,
+      76,
+      77
+     ],
+     "n_donors": 3,
+     "description": "re-mirror whole glosses to 56.8% (sign-axis twin)",
+     "I_chirality_signer": 0.0006,
+     "mean": 42.4198,
+     "sd": 0.881,
+     "per_donor": [
+      43.1926,
+      41.4605,
+      42.6064
+     ],
+     "gain_over_natural": 3.4052,
+     "pct_of_canonical_effect": 57.3
+    },
+    "flip_aug": {
+     "seeds": [
+      40,
+      41,
+      42
+     ],
+     "n_donors": 3,
+     "description": "per-epoch stochastic mirror p=0.5 (A2 comparator; native frame = raw recipients)",
+     "I_chirality_signer": null,
+     "mean": 45.3064,
+     "sd": 1.5216,
+     "per_donor": [
+      43.5683,
+      46.3979,
+      45.953
+     ],
+     "gain_over_natural": 6.2918,
+     "pct_of_canonical_effect": 105.9
+    },
+    "signer_majority": {
+     "seeds": [
+      80,
+      81,
+      82
+     ],
+     "n_donors": 3,
+     "description": "mirror left-majority signers",
+     "I_chirality_signer": 0.054,
+     "mean": 44.5116,
+     "sd": 1.6289,
+     "per_donor": [
+      46.1053,
+      44.5797,
+      42.8498
+     ],
+     "gain_over_natural": 5.497,
+     "pct_of_canonical_effect": 92.5
+    },
+    "vertical_anchor": {
+     "seeds": [
+      30,
+      31,
+      32
+     ],
+     "n_donors": 3,
+     "description": "signing-space vertical anchoring (specificity control)",
+     "I_chirality_signer": null,
+     "mean": 39.6496,
+     "sd": 0.6565,
+     "per_donor": [
+      39.7913,
+      38.9338,
+      40.2237
+     ],
+     "gain_over_natural": 0.635,
+     "pct_of_canonical_effect": 10.7
+    }
+   }
+  },
+  "proto": {
+   "n_common_cells": 54,
+   "arms": {
+    "natural_standard": {
+     "seeds": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "n_donors": 4,
+     "description": "no transform",
+     "I_chirality_signer": 0.1502,
+     "mean": 30.9688,
+     "sd": 1.4819,
+     "per_donor": [
+      33.0481,
+      29.7012,
+      30.1578,
+      30.968
+     ],
+     "gain_over_natural": 0.0,
+     "pct_of_canonical_effect": 0.0
+    },
+    "canonical": {
+     "seeds": [
+      90,
+      94,
+      12,
+      13
+     ],
+     "n_donors": 4,
+     "description": "mirror iff e_L > 1.2 e_R (headline clean quad; s10 retired)",
+     "I_chirality_signer": 0.0,
+     "mean": 36.0592,
+     "sd": 1.5371,
+     "per_donor": [
+      37.1103,
+      35.3437,
+      37.5369,
+      34.246
+     ],
+     "gain_over_natural": 5.0904,
+     "pct_of_canonical_effect": 100.0
+    },
+    "entropy_f0.00": {
+     "seeds": [
+      50
+     ],
+     "n_donors": 1,
+     "description": "canonicalize all (no hysteresis)",
+     "I_chirality_signer": 0.0,
+     "mean": 34.5639,
+     "sd": null,
+     "per_donor": [
+      34.5639
+     ],
+     "gain_over_natural": 3.5951,
+     "pct_of_canonical_effect": 70.6
+    },
+    "entropy_f0.20": {
+     "seeds": [
+      51,
+      54,
+      55
+     ],
+     "n_donors": 3,
+     "description": "re-mirror random 20%",
+     "I_chirality_signer": 0.0006,
+     "mean": 36.7674,
+     "sd": 1.7712,
+     "per_donor": [
+      38.6208,
+      36.5895,
+      35.0919
+     ],
+     "gain_over_natural": 5.7986,
+     "pct_of_canonical_effect": 113.9
+    },
+    "entropy_f0.40": {
+     "seeds": [
+      52
+     ],
+     "n_donors": 1,
+     "description": "re-mirror random 40%",
+     "I_chirality_signer": null,
+     "mean": 35.8853,
+     "sd": null,
+     "per_donor": [
+      35.8853
+     ],
+     "gain_over_natural": 4.9165,
+     "pct_of_canonical_effect": 96.6
+    },
+    "entropy_f0.568": {
+     "seeds": [
+      53,
+      56,
+      57
+     ],
+     "n_donors": 3,
+     "description": "re-mirror random 56.8% (natural rate)",
+     "I_chirality_signer": 0.0011,
+     "mean": 35.8513,
+     "sd": 2.5329,
+     "per_donor": [
+      32.991,
+      37.8102,
+      36.7527
+     ],
+     "gain_over_natural": 4.8825,
+     "pct_of_canonical_effect": 95.9
+    },
+    "signer_blocked": {
+     "seeds": [
+      70,
+      71,
+      72
+     ],
+     "n_donors": 3,
+     "description": "re-mirror whole signers to 56.8%",
+     "I_chirality_signer": 0.4358,
+     "mean": 34.2728,
+     "sd": 1.0182,
+     "per_donor": [
+      34.7437,
+      34.9703,
+      33.1044
+     ],
+     "gain_over_natural": 3.304,
+     "pct_of_canonical_effect": 64.9
+    },
+    "gloss_blocked": {
+     "seeds": [
+      75,
+      76,
+      77
+     ],
+     "n_donors": 3,
+     "description": "re-mirror whole glosses to 56.8% (sign-axis twin)",
+     "I_chirality_signer": 0.0006,
+     "mean": 34.8133,
+     "sd": 1.6333,
+     "per_donor": [
+      36.2292,
+      33.0264,
+      35.1843
+     ],
+     "gain_over_natural": 3.8445,
+     "pct_of_canonical_effect": 75.5
+    },
+    "flip_aug": {
+     "seeds": [
+      40,
+      41,
+      42
+     ],
+     "n_donors": 3,
+     "description": "per-epoch stochastic mirror p=0.5 (A2 comparator; native frame = raw recipients)",
+     "I_chirality_signer": null,
+     "mean": 36.4288,
+     "sd": 0.7535,
+     "per_donor": [
+      36.0147,
+      35.9732,
+      37.2985
+     ],
+     "gain_over_natural": 5.46,
+     "pct_of_canonical_effect": 107.3
+    },
+    "signer_majority": {
+     "seeds": [
+      80,
+      81,
+      82
+     ],
+     "n_donors": 3,
+     "description": "mirror left-majority signers",
+     "I_chirality_signer": 0.054,
+     "mean": 36.1498,
+     "sd": 1.6455,
+     "per_donor": [
+      36.596,
+      37.5262,
+      34.3272
+     ],
+     "gain_over_natural": 5.181,
+     "pct_of_canonical_effect": 101.8
+    },
+    "vertical_anchor": {
+     "seeds": [
+      30,
+      31,
+      32
+     ],
+     "n_donors": 3,
+     "description": "signing-space vertical anchoring (specificity control)",
+     "I_chirality_signer": null,
+     "mean": 32.658,
+     "sd": 0.8227,
+     "per_donor": [
+      31.8403,
+      33.4855,
+      32.6481
+     ],
+     "gain_over_natural": 1.6892,
+     "pct_of_canonical_effect": 33.2
+    }
+   }
+  }
+ }
+}

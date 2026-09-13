@@ -1,6 +1,6 @@
 [project]
 name = "signcanon"
-version = "1.0.0"
+version = "1.1.0"
 description = "Hand-dominance canonicalization for cross-lingual sign language transfer, and the tracking-failure audit behind it"
 readme = "README.md"
 requires-python = ">=3.10"

@@ -1,0 +1,48 @@
+{
+ "0": {
+  "arm": "standard",
+  "held_out_signer_accuracy": 77.60000000000001
+ },
+ "1": {
+  "arm": "standard",
+  "held_out_signer_accuracy": 73.85000000000001
+ },
+ "2": {
+  "arm": "standard",
+  "held_out_signer_accuracy": 76.075
+ },
+ "3": {
+  "arm": "standard",
+  "held_out_signer_accuracy": 75.575
+ },
+ "12": {
+  "arm": "canonical",
+  "held_out_signer_accuracy": 74.52499999999999
+ },
+ "13": {
+  "arm": "canonical",
+  "held_out_signer_accuracy": 75.47500000000001
+ },
+ "43": {
+  "arm": "unconditional_flip",
+  "held_out_signer_accuracy": 76.64999999999999
+ },
+ "44": {
+  "arm": "unconditional_flip",
+  "held_out_signer_accuracy": 77.575
+ },
+ "45": {
+  "arm": "unconditional_flip",
+  "held_out_signer_accuracy": 73.97500000000001
+ },
+ "90": {
+  "arm": "canonical",
+  "held_out_signer_accuracy": 74.575,
+  "note": "re-run of the published probe protocol; s0/s12 reproduce their training-time values to 0.025 points"
+ },
+ "94": {
+  "arm": "canonical",
+  "held_out_signer_accuracy": 75.44999999999999,
+  "note": "re-run of the published probe protocol; s0/s12 reproduce their training-time values to 0.025 points"
+ }
+}

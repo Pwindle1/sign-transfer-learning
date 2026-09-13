@@ -1,0 +1,325 @@
+{
+ "note": "dominance_group_raw is computed on the RAW clips; in the canonical frame every decidable clip's action is in the right block by construction",
+ "rows": [
+  {
+   "donor_arm": "standard",
+   "input_frame": "raw",
+   "occluded_block": "left_hand",
+   "dominance_group_raw": "intermediate",
+   "mean_logit_drop": 3.9739,
+   "sd_across_donors": 0.1033,
+   "n_donors": 4,
+   "n_clips": 1377
+  },
+  {
+   "donor_arm": "standard",
+   "input_frame": "raw",
+   "occluded_block": "left_hand",
+   "dominance_group_raw": "left_dominant",
+   "mean_logit_drop": 5.0147,
+   "sd_across_donors": 0.0754,
+   "n_donors": 4,
+   "n_clips": 2797
+  },
+  {
+   "donor_arm": "standard",
+   "input_frame": "raw",
+   "occluded_block": "left_hand",
+   "dominance_group_raw": "right_dominant",
+   "mean_logit_drop": 2.8659,
+   "sd_across_donors": 0.2809,
+   "n_donors": 4,
+   "n_clips": 45
+  },
+  {
+   "donor_arm": "standard",
+   "input_frame": "raw",
+   "occluded_block": "left_hand",
+   "dominance_group_raw": "symmetric",
+   "mean_logit_drop": 3.9434,
+   "sd_across_donors": 0.0433,
+   "n_donors": 4,
+   "n_clips": 1234
+  },
+  {
+   "donor_arm": "standard",
+   "input_frame": "raw",
+   "occluded_block": "right_hand",
+   "dominance_group_raw": "intermediate",
+   "mean_logit_drop": 3.0072,
+   "sd_across_donors": 0.21,
+   "n_donors": 4,
+   "n_clips": 1377
+  },
+  {
+   "donor_arm": "standard",
+   "input_frame": "raw",
+   "occluded_block": "right_hand",
+   "dominance_group_raw": "left_dominant",
+   "mean_logit_drop": 2.9123,
+   "sd_across_donors": 0.136,
+   "n_donors": 4,
+   "n_clips": 2797
+  },
+  {
+   "donor_arm": "standard",
+   "input_frame": "raw",
+   "occluded_block": "right_hand",
+   "dominance_group_raw": "right_dominant",
+   "mean_logit_drop": 2.5212,
+   "sd_across_donors": 0.2012,
+   "n_donors": 4,
+   "n_clips": 45
+  },
+  {
+   "donor_arm": "standard",
+   "input_frame": "raw",
+   "occluded_block": "right_hand",
+   "dominance_group_raw": "symmetric",
+   "mean_logit_drop": 3.2402,
+   "sd_across_donors": 0.1584,
+   "n_donors": 4,
+   "n_clips": 1234
+  },
+  {
+   "donor_arm": "standard",
+   "input_frame": "canonical",
+   "occluded_block": "left_hand",
+   "dominance_group_raw": "intermediate",
+   "mean_logit_drop": 3.2443,
+   "sd_across_donors": 0.0947,
+   "n_donors": 4,
+   "n_clips": 1377
+  },
+  {
+   "donor_arm": "standard",
+   "input_frame": "canonical",
+   "occluded_block": "left_hand",
+   "dominance_group_raw": "left_dominant",
+   "mean_logit_drop": 1.9694,
+   "sd_across_donors": 0.3713,
+   "n_donors": 4,
+   "n_clips": 2797
+  },
+  {
+   "donor_arm": "standard",
+   "input_frame": "canonical",
+   "occluded_block": "left_hand",
+   "dominance_group_raw": "right_dominant",
+   "mean_logit_drop": 2.8659,
+   "sd_across_donors": 0.2809,
+   "n_donors": 4,
+   "n_clips": 45
+  },
+  {
+   "donor_arm": "standard",
+   "input_frame": "canonical",
+   "occluded_block": "left_hand",
+   "dominance_group_raw": "symmetric",
+   "mean_logit_drop": 3.9434,
+   "sd_across_donors": 0.0433,
+   "n_donors": 4,
+   "n_clips": 1234
+  },
+  {
+   "donor_arm": "standard",
+   "input_frame": "canonical",
+   "occluded_block": "right_hand",
+   "dominance_group_raw": "intermediate",
+   "mean_logit_drop": 2.9649,
+   "sd_across_donors": 0.1655,
+   "n_donors": 4,
+   "n_clips": 1377
+  },
+  {
+   "donor_arm": "standard",
+   "input_frame": "canonical",
+   "occluded_block": "right_hand",
+   "dominance_group_raw": "left_dominant",
+   "mean_logit_drop": 3.6712,
+   "sd_across_donors": 0.1221,
+   "n_donors": 4,
+   "n_clips": 2797
+  },
+  {
+   "donor_arm": "standard",
+   "input_frame": "canonical",
+   "occluded_block": "right_hand",
+   "dominance_group_raw": "right_dominant",
+   "mean_logit_drop": 2.5212,
+   "sd_across_donors": 0.2012,
+   "n_donors": 4,
+   "n_clips": 45
+  },
+  {
+   "donor_arm": "standard",
+   "input_frame": "canonical",
+   "occluded_block": "right_hand",
+   "dominance_group_raw": "symmetric",
+   "mean_logit_drop": 3.2402,
+   "sd_across_donors": 0.1584,
+   "n_donors": 4,
+   "n_clips": 1234
+  },
+  {
+   "donor_arm": "canonical",
+   "input_frame": "raw",
+   "occluded_block": "left_hand",
+   "dominance_group_raw": "intermediate",
+   "mean_logit_drop": 3.5703,
+   "sd_across_donors": 0.2133,
+   "n_donors": 4,
+   "n_clips": 1377
+  },
+  {
+   "donor_arm": "canonical",
+   "input_frame": "raw",
+   "occluded_block": "left_hand",
+   "dominance_group_raw": "left_dominant",
+   "mean_logit_drop": 0.4679,
+   "sd_across_donors": 0.0433,
+   "n_donors": 4,
+   "n_clips": 2797
+  },
+  {
+   "donor_arm": "canonical",
+   "input_frame": "raw",
+   "occluded_block": "left_hand",
+   "dominance_group_raw": "right_dominant",
+   "mean_logit_drop": 2.6209,
+   "sd_across_donors": 0.1275,
+   "n_donors": 4,
+   "n_clips": 45
+  },
+  {
+   "donor_arm": "canonical",
+   "input_frame": "raw",
+   "occluded_block": "left_hand",
+   "dominance_group_raw": "symmetric",
+   "mean_logit_drop": 3.869,
+   "sd_across_donors": 0.28,
+   "n_donors": 4,
+   "n_clips": 1234
+  },
+  {
+   "donor_arm": "canonical",
+   "input_frame": "raw",
+   "occluded_block": "right_hand",
+   "dominance_group_raw": "intermediate",
+   "mean_logit_drop": 2.8859,
+   "sd_across_donors": 0.1795,
+   "n_donors": 4,
+   "n_clips": 1377
+  },
+  {
+   "donor_arm": "canonical",
+   "input_frame": "raw",
+   "occluded_block": "right_hand",
+   "dominance_group_raw": "left_dominant",
+   "mean_logit_drop": 0.6935,
+   "sd_across_donors": 0.1206,
+   "n_donors": 4,
+   "n_clips": 2797
+  },
+  {
+   "donor_arm": "canonical",
+   "input_frame": "raw",
+   "occluded_block": "right_hand",
+   "dominance_group_raw": "right_dominant",
+   "mean_logit_drop": 3.0174,
+   "sd_across_donors": 0.0775,
+   "n_donors": 4,
+   "n_clips": 45
+  },
+  {
+   "donor_arm": "canonical",
+   "input_frame": "raw",
+   "occluded_block": "right_hand",
+   "dominance_group_raw": "symmetric",
+   "mean_logit_drop": 3.0157,
+   "sd_across_donors": 0.201,
+   "n_donors": 4,
+   "n_clips": 1234
+  },
+  {
+   "donor_arm": "canonical",
+   "input_frame": "canonical",
+   "occluded_block": "left_hand",
+   "dominance_group_raw": "intermediate",
+   "mean_logit_drop": 3.4359,
+   "sd_across_donors": 0.1918,
+   "n_donors": 4,
+   "n_clips": 1377
+  },
+  {
+   "donor_arm": "canonical",
+   "input_frame": "canonical",
+   "occluded_block": "left_hand",
+   "dominance_group_raw": "left_dominant",
+   "mean_logit_drop": 2.2386,
+   "sd_across_donors": 0.2287,
+   "n_donors": 4,
+   "n_clips": 2797
+  },
+  {
+   "donor_arm": "canonical",
+   "input_frame": "canonical",
+   "occluded_block": "left_hand",
+   "dominance_group_raw": "right_dominant",
+   "mean_logit_drop": 2.6209,
+   "sd_across_donors": 0.1275,
+   "n_donors": 4,
+   "n_clips": 45
+  },
+  {
+   "donor_arm": "canonical",
+   "input_frame": "canonical",
+   "occluded_block": "left_hand",
+   "dominance_group_raw": "symmetric",
+   "mean_logit_drop": 3.869,
+   "sd_across_donors": 0.28,
+   "n_donors": 4,
+   "n_clips": 1234
+  },
+  {
+   "donor_arm": "canonical",
+   "input_frame": "canonical",
+   "occluded_block": "right_hand",
+   "dominance_group_raw": "intermediate",
+   "mean_logit_drop": 3.401,
+   "sd_across_donors": 0.1541,
+   "n_donors": 4,
+   "n_clips": 1377
+  },
+  {
+   "donor_arm": "canonical",
+   "input_frame": "canonical",
+   "occluded_block": "right_hand",
+   "dominance_group_raw": "left_dominant",
+   "mean_logit_drop": 5.0815,
+   "sd_across_donors": 0.075,
+   "n_donors": 4,
+   "n_clips": 2797
+  },
+  {
+   "donor_arm": "canonical",
+   "input_frame": "canonical",
+   "occluded_block": "right_hand",
+   "dominance_group_raw": "right_dominant",
+   "mean_logit_drop": 3.0174,
+   "sd_across_donors": 0.0775,
+   "n_donors": 4,
+   "n_clips": 45
+  },
+  {
+   "donor_arm": "canonical",
+   "input_frame": "canonical",
+   "occluded_block": "right_hand",
+   "dominance_group_raw": "symmetric",
+   "mean_logit_drop": 3.0157,
+   "sd_across_donors": 0.201,
+   "n_donors": 4,
+   "n_clips": 1234
+  }
+ ]
+}

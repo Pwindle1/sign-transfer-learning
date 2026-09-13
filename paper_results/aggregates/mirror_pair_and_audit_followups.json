@@ -1,0 +1,49 @@
+{
+ "s90_clean_graph_replacement": {
+  "donor_mean_90cell": 43.945,
+  "contaminated_s10_was": 43.789,
+  "clean_arm_headline": {
+   "canon": [
+    43.945,
+    44.968,
+    44.997
+   ],
+   "std": [
+    39.879,
+    37.432,
+    38.58,
+    38.928
+   ],
+   "effect": 5.932,
+   "complete_separation": true,
+   "p_exact": "1/35"
+  },
+  "decision": "replace s10 with s90 in the primary arm; disclose the race and report s10 in the appendix as a near-identical contaminated replicate (+5.88 with it)"
+ },
+ "mirror_pair_test": {
+  "all_left_s91_45cell": 45.864,
+  "all_right_s50_45cell": 46.03,
+  "diff": -0.166,
+  "reading": "end-to-end pipeline mirror-invariance at the trained-donor level, well within donor noise (~1.0); replaces the 6k-probe-only support for the automorphism claim. NOTE: this is the mirror-pair of the canonicalization operator, not a global mirror of the natural corpus - the guide wording reflects that."
+ },
+ "scaling_pair2": {
+  "pair1_s60_s61": 3.784,
+  "pair2_s92_s93": 3.601,
+  "mean_79k_gain": 3.693,
+  "n_pairs": 2,
+  "endpoint_contrast_vs_full": {
+   "delta": 2.338,
+   "se_approx": 1.17,
+   "z": 2.0,
+   "reading": "the gain is larger at full donor size than at 7.9k (p ~ 0.05); 'does not shrink' is now conservative and 'is larger at full size' is printable with the SE"
+  }
+ },
+ "lsa64_cell_replication": {
+  "std_mean": 75.22,
+  "std_sd": 2.16,
+  "canon_mean": 81.01,
+  "canon_sd": 1.63,
+  "gap": 5.79,
+  "reading": "the audit's -18.6 single-run arm-C cell was an aberrant unseeded run; 5 seeded reps x 7 donors give +5.8 with tight spreads - the self-audit LOCO fragility is resolved as run noise, not a real collapse"
+ }
+}

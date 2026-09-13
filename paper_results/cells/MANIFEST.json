@@ -1,0 +1,738 @@
+[
+ {
+  "file": "s0_standard_canonrecipients.json",
+  "donor": 0,
+  "arm": "standard",
+  "recipient_frame": "canonical",
+  "native": false,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s0_standard_rawrecipients.json",
+  "donor": 0,
+  "arm": "standard",
+  "recipient_frame": "raw",
+  "native": true,
+  "n_cells": 90,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "file": "s1_standard_canonrecipients.json",
+  "donor": 1,
+  "arm": "standard",
+  "recipient_frame": "canonical",
+  "native": false,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s1_standard_rawrecipients.json",
+  "donor": 1,
+  "arm": "standard",
+  "recipient_frame": "raw",
+  "native": true,
+  "n_cells": 90,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "file": "s2_standard_canonrecipients.json",
+  "donor": 2,
+  "arm": "standard",
+  "recipient_frame": "canonical",
+  "native": false,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s2_standard_rawrecipients.json",
+  "donor": 2,
+  "arm": "standard",
+  "recipient_frame": "raw",
+  "native": true,
+  "n_cells": 90,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "file": "s3_standard_canonrecipients.json",
+  "donor": 3,
+  "arm": "standard",
+  "recipient_frame": "canonical",
+  "native": false,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s3_standard_rawrecipients.json",
+  "donor": 3,
+  "arm": "standard",
+  "recipient_frame": "raw",
+  "native": true,
+  "n_cells": 90,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "file": "s12_canonical_canonrecipients.json",
+  "donor": 12,
+  "arm": "canonical",
+  "recipient_frame": "canonical",
+  "native": true,
+  "n_cells": 90,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "file": "s12_canonical_rawrecipients.json",
+  "donor": 12,
+  "arm": "canonical",
+  "recipient_frame": "raw",
+  "native": false,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s13_canonical_canonrecipients.json",
+  "donor": 13,
+  "arm": "canonical",
+  "recipient_frame": "canonical",
+  "native": true,
+  "n_cells": 90,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "file": "s13_canonical_rawrecipients.json",
+  "donor": 13,
+  "arm": "canonical",
+  "recipient_frame": "raw",
+  "native": false,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s40_flip_aug_p0.5_canonrecipients.json",
+  "donor": 40,
+  "arm": "flip_aug_p0.5",
+  "recipient_frame": "canonical",
+  "native": false,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s40_flip_aug_p0.5_rawrecipients.json",
+  "donor": 40,
+  "arm": "flip_aug_p0.5",
+  "recipient_frame": "raw",
+  "native": true,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s41_flip_aug_p0.5_canonrecipients.json",
+  "donor": 41,
+  "arm": "flip_aug_p0.5",
+  "recipient_frame": "canonical",
+  "native": false,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s41_flip_aug_p0.5_rawrecipients.json",
+  "donor": 41,
+  "arm": "flip_aug_p0.5",
+  "recipient_frame": "raw",
+  "native": true,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s42_flip_aug_p0.5_canonrecipients.json",
+  "donor": 42,
+  "arm": "flip_aug_p0.5",
+  "recipient_frame": "canonical",
+  "native": false,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s42_flip_aug_p0.5_rawrecipients.json",
+  "donor": 42,
+  "arm": "flip_aug_p0.5",
+  "recipient_frame": "raw",
+  "native": true,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s43_unconditional_flip_rawrecipients.json",
+  "donor": 43,
+  "arm": "unconditional_flip",
+  "recipient_frame": "raw",
+  "native": true,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s44_unconditional_flip_rawrecipients.json",
+  "donor": 44,
+  "arm": "unconditional_flip",
+  "recipient_frame": "raw",
+  "native": true,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s45_unconditional_flip_rawrecipients.json",
+  "donor": 45,
+  "arm": "unconditional_flip",
+  "recipient_frame": "raw",
+  "native": true,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s50_random_f0.00_canonrecipients.json",
+  "donor": 50,
+  "arm": "random_f0.00",
+  "recipient_frame": "canonical",
+  "native": true,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s51_random_f0.20_canonrecipients.json",
+  "donor": 51,
+  "arm": "random_f0.20",
+  "recipient_frame": "canonical",
+  "native": true,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s52_random_f0.40_canonrecipients.json",
+  "donor": 52,
+  "arm": "random_f0.40",
+  "recipient_frame": "canonical",
+  "native": true,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s53_random_f0.568_canonrecipients.json",
+  "donor": 53,
+  "arm": "random_f0.568",
+  "recipient_frame": "canonical",
+  "native": true,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s54_random_f0.20_canonrecipients.json",
+  "donor": 54,
+  "arm": "random_f0.20",
+  "recipient_frame": "canonical",
+  "native": true,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s55_random_f0.20_canonrecipients.json",
+  "donor": 55,
+  "arm": "random_f0.20",
+  "recipient_frame": "canonical",
+  "native": true,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s56_random_f0.568_canonrecipients.json",
+  "donor": 56,
+  "arm": "random_f0.568",
+  "recipient_frame": "canonical",
+  "native": true,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s57_random_f0.568_canonrecipients.json",
+  "donor": 57,
+  "arm": "random_f0.568",
+  "recipient_frame": "canonical",
+  "native": true,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s60_subsample_7910_standard_rawrecipients.json",
+  "donor": 60,
+  "arm": "subsample_7910_standard",
+  "recipient_frame": "raw",
+  "native": true,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s61_subsample_7910_canonical_canonrecipients.json",
+  "donor": 61,
+  "arm": "subsample_7910_canonical",
+  "recipient_frame": "canonical",
+  "native": true,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s62_subsample_15820_standard_rawrecipients.json",
+  "donor": 62,
+  "arm": "subsample_15820_standard",
+  "recipient_frame": "raw",
+  "native": true,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s63_subsample_15820_canonical_canonrecipients.json",
+  "donor": 63,
+  "arm": "subsample_15820_canonical",
+  "recipient_frame": "canonical",
+  "native": true,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s70_signer_blocked_f0.568_canonrecipients.json",
+  "donor": 70,
+  "arm": "signer_blocked_f0.568",
+  "recipient_frame": "canonical",
+  "native": true,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s71_signer_blocked_f0.568_canonrecipients.json",
+  "donor": 71,
+  "arm": "signer_blocked_f0.568",
+  "recipient_frame": "canonical",
+  "native": true,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s72_signer_blocked_f0.568_canonrecipients.json",
+  "donor": 72,
+  "arm": "signer_blocked_f0.568",
+  "recipient_frame": "canonical",
+  "native": true,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s75_gloss_blocked_f0.568_canonrecipients.json",
+  "donor": 75,
+  "arm": "gloss_blocked_f0.568",
+  "recipient_frame": "canonical",
+  "native": true,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s76_gloss_blocked_f0.568_canonrecipients.json",
+  "donor": 76,
+  "arm": "gloss_blocked_f0.568",
+  "recipient_frame": "canonical",
+  "native": true,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s77_gloss_blocked_f0.568_canonrecipients.json",
+  "donor": 77,
+  "arm": "gloss_blocked_f0.568",
+  "recipient_frame": "canonical",
+  "native": true,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s80_signer_majority_canonrecipients.json",
+  "donor": 80,
+  "arm": "signer_majority",
+  "recipient_frame": "canonical",
+  "native": true,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s81_signer_majority_canonrecipients.json",
+  "donor": 81,
+  "arm": "signer_majority",
+  "recipient_frame": "canonical",
+  "native": true,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s82_signer_majority_canonrecipients.json",
+  "donor": 82,
+  "arm": "signer_majority",
+  "recipient_frame": "canonical",
+  "native": true,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s90_canonical_canonrecipients.json",
+  "donor": 90,
+  "arm": "canonical",
+  "recipient_frame": "canonical",
+  "native": true,
+  "n_cells": 90,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "file": "s90_canonical_rawrecipients.json",
+  "donor": 90,
+  "arm": "canonical",
+  "recipient_frame": "raw",
+  "native": false,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s91_all_left_canonrecipients.json",
+  "donor": 91,
+  "arm": "all_left",
+  "recipient_frame": "canonical",
+  "native": true,
+  "n_cells": 90,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "file": "s92_subsample_7910_standard_rawrecipients.json",
+  "donor": 92,
+  "arm": "subsample_7910_standard",
+  "recipient_frame": "raw",
+  "native": true,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s93_subsample_7910_canonical_canonrecipients.json",
+  "donor": 93,
+  "arm": "subsample_7910_canonical",
+  "recipient_frame": "canonical",
+  "native": true,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "s94_canonical_canonrecipients.json",
+  "donor": 94,
+  "arm": "canonical",
+  "recipient_frame": "canonical",
+  "native": true,
+  "n_cells": 90,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "file": "s94_canonical_rawrecipients.json",
+  "donor": 94,
+  "arm": "canonical",
+  "recipient_frame": "raw",
+  "native": false,
+  "n_cells": 54,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "file": "no_donor_rawrecipients.json",
+  "donor": -1,
+  "arm": "no_donor",
+  "recipient_frame": "raw",
+  "native": true,
+  "n_cells": 90,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "file": "no_donor_canonrecipients.json",
+  "donor": -1,
+  "arm": "no_donor",
+  "recipient_frame": "canonical",
+  "native": true,
+  "n_cells": 90,
+  "n_recipients": 6,
+  "eval_seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ }
+]

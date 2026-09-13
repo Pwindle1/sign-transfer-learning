@@ -24,3 +24,12 @@ def test_partial_dropout_below_threshold_keeps_the_clip():
     clips = np.random.default_rng(2).normal(size=(2, 2, 32, 49)).astype(np.float32)
     clips[0, :, :10, RIGHT_HAND] = 0.0
     assert clip_validity(clips).all()
+
+
+def test_fractional_presence_is_counted():
+    clips = np.random.default_rng(3).normal(size=(3, 2, 32, 49)).astype(np.float32)
+    assert dropout_census(clips)["fractional_presence_clips"] == 0
+    clips[0, :, :, LEFT_HAND] = 0.0            # whole-clip loss: presence exactly 0, not fractional
+    assert dropout_census(clips)["fractional_presence_clips"] == 0
+    clips[1, :, :10, RIGHT_HAND] = 0.0         # mid-clip dropout: presence strictly between 0 and 1
+    assert dropout_census(clips)["fractional_presence_clips"] == 1

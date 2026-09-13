@@ -1,0 +1,86 @@
+{
+ "top1": {
+  "standard": {
+   "raw": {
+    "mean_pct": 76.49,
+    "per_donor_pct": [
+     78.03,
+     75.04,
+     76.88,
+     75.99
+    ]
+   },
+   "canonical": {
+    "mean_pct": 62.02,
+    "per_donor_pct": [
+     63.18,
+     60.02,
+     63.49,
+     61.4
+    ]
+   }
+  },
+  "canonical": {
+   "raw": {
+    "mean_pct": 39.34,
+    "per_donor_pct": [
+     40.01,
+     39.17,
+     39.45,
+     38.73
+    ]
+   },
+   "canonical": {
+    "mean_pct": 75.9,
+    "per_donor_pct": [
+     75.59,
+     76.36,
+     75.5,
+     76.14
+    ]
+   }
+  }
+ },
+ "action_block_share": {
+  "standard": {
+   "raw": {
+    "mean": 0.8017,
+    "per_donor": [
+     0.8018,
+     0.8054,
+     0.8127,
+     0.7869
+    ]
+   },
+   "canonical": {
+    "mean": 0.791,
+    "per_donor": [
+     0.8012,
+     0.8117,
+     0.7798,
+     0.7712
+    ]
+   }
+  },
+  "canonical": {
+   "raw": {
+    "mean": 0.3875,
+    "per_donor": [
+     0.3157,
+     0.3717,
+     0.4215,
+     0.4408
+    ]
+   },
+   "canonical": {
+    "mean": 0.8235,
+    "per_donor": [
+     0.8124,
+     0.8214,
+     0.834,
+     0.8263
+    ]
+   }
+  }
+ }
+}

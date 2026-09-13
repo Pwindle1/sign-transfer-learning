@@ -29,6 +29,8 @@ def load_corpus(path: str | Path, name: str | None = None) -> Corpus:
 def signer_disjoint_split(
     labels: np.ndarray, signers: np.ndarray, n_test_signers: int, n_val_signers: int, seed: int
 ) -> tuple[np.ndarray, np.ndarray, np.ndarray, str]:
+    """Recipient-side split used by every episode. Corpora without usable signer ids fall back to a
+    clip-level split. n_val_signers = 0 reserves no validation signers."""
     rng = np.random.default_rng(seed)
     unique = sorted(set(signers.tolist()))
     if len(unique) <= 2 or unique == ["NA"]:
@@ -37,12 +39,27 @@ def signer_disjoint_split(
         return order[b:], order[:a], order[a:b], "clip_only"
     rng.shuffle(unique)
     n_test = max(1, min(n_test_signers, len(unique) - 2))
-    n_val = max(1, min(n_val_signers, len(unique) - n_test - 1))
+    n_val = 0 if n_val_signers == 0 else max(1, min(n_val_signers, len(unique) - n_test - 1))
     test_set, val_set = set(unique[:n_test]), set(unique[n_test : n_test + n_val])
     test = np.array([i for i in range(len(labels)) if signers[i] in test_set])
-    val = np.array([i for i in range(len(labels)) if signers[i] in val_set])
+    val = np.array([i for i in range(len(labels)) if signers[i] in val_set], dtype=int)
     adapt = np.array([i for i in range(len(labels)) if signers[i] not in test_set | val_set])
     return adapt, test, val, "signer_disjoint"
+
+
+def donor_split(
+    signers: np.ndarray, n_held: int = 9, seed: int = 42, val_cap: int = 3000
+) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """The donor split used for every donor in the paper: hold n_held signers out entirely (train on
+    all clips of the remaining signers - 28 signers / 26,157 clips on AUTSL), and take the first
+    val_cap held-signer clips as the in-training validation set. Returns (train, held, val) indices."""
+    unique = sorted(set(signers.tolist()))
+    rng = np.random.default_rng(seed)
+    rng.shuffle(unique)
+    held = set(unique[:n_held])
+    train = np.array([i for i in range(len(signers)) if signers[i] not in held])
+    held_idx = np.array([i for i in range(len(signers)) if signers[i] in held])
+    return train, held_idx, held_idx[:val_cap]
 
 
 def sample_support(
@@ -66,6 +83,22 @@ def cap_test_set(indices: np.ndarray, limit: int, seed: int) -> np.ndarray:
     return np.sort(np.random.default_rng(9000 + seed).choice(indices, limit, replace=False))
 
 
+def subsample_balanced(labels: np.ndarray, n: int, seed: int = 0) -> np.ndarray:
+    """Class-balanced donor subsample for the scaling arms (seeds 60-63): an equal per-class quota of
+    n // n_classes clips, shuffled per class with the seed, capped at n. Returns clip indices."""
+    rng = np.random.default_rng(seed)
+    by_class: dict[int, list[int]] = defaultdict(list)
+    for i, c in enumerate(labels):
+        by_class[int(c)].append(i)
+    per = max(1, n // len(by_class))
+    take: list[int] = []
+    for indices in by_class.values():
+        indices = list(indices)
+        rng.shuffle(indices)
+        take += indices[:per]
+    return np.array(sorted(take[:n]))
+
+
 @dataclass(frozen=True)
 class Episode:
     eval_seed: int
@@ -81,6 +114,9 @@ def episodes(
     eval_seeds: tuple[int, ...] = (0, 1, 2),
     test_cap: int = 1200,
 ):
+    """k-shot episodes. The headline grid uses eval_seeds (0, 1, 2, 3, 4); the mechanism variants
+    use (0, 1, 2). Support and test draws depend only on (corpus, k, eval_seed), so every arm is
+    scored on exactly the same cells."""
     unique_signers = sorted(set(corpus.signers.tolist()))
     for seed in eval_seeds:
         adapt, test, val, _ = signer_disjoint_split(
@@ -108,6 +144,8 @@ def episodes(
 
 
 def to_model_input(clips: np.ndarray):
+    """(N, 2, T, 49) -> the CTR-GCN input tensor: a zero third channel is appended (the model expects
+    three input channels; only x and y carry data) and the axes are laid out as (N, T, 49*3)."""
     import torch
 
     n, c, t, v = clips.shape
