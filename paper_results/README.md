@@ -1,10 +1,10 @@
-# paper_results — every number in the paper, as JSON
+# paper_results: every number in the paper, as JSON
 
 All files are the cell-level or aggregate outputs behind the paper's tables and figures, converted
 to the schema this repository's scripts read. Nothing here was re-run for the release: these are
 the production results, re-keyed.
 
-## cells/ — cell-level grids
+## cells/: cell-level grids
 
 One file per (donor seed, recipient frame): `s<seed>_<arm>_<raw|canon>recipients.json`. Each row is
 one cell of one regime:
@@ -22,8 +22,8 @@ recipient_canonical whether the recipient clips were canonicalized (the canonica
 split               "signer_disjoint" or "clip_only"
 ```
 
-`MANIFEST.json` lists every file with its cell count and episode seeds. "Native" frames — the ones
-every headline and variant number uses — are raw recipients for standard, flip-augmentation,
+`MANIFEST.json` lists every file with its cell count and episode seeds. "Native" frames (the ones
+every headline and variant number uses) are raw recipients for standard, flip-augmentation,
 unconditional-flip and no-donor arms, and canonicalized recipients for every canonicalized donor.
 The non-native files (`s0-3 ... canonrecipients`, `s90/94/12/13 ... rawrecipients`) are the
 off-diagonal cells of the paper's 2×2 (Table 6). The no-donor files carry `accuracy_by_epochs` and
@@ -47,12 +47,12 @@ python experiments/compare_donors.py \
   --control 0 1 2 3 --treatment 43 44 45 --eval-seeds 0 1 2
 ```
 
-## in_language/ — the donor's own language
+## in_language/: the donor's own language
 
 `held_out_signer_probe.json`: per donor, accuracy of a linear probe on frozen features over the nine
 held-out AUTSL signers (Section 5, "canonicalization has a small cost in the donor's own language").
 
-## aggregates/ — what the tables print
+## aggregates/: what the tables print
 
 | file | feeds |
 |---|---|
