@@ -1,8 +1,7 @@
-# paper_results: every number in the paper, as JSON
+# paper_results
 
-All files are the cell-level or aggregate outputs behind the paper's tables and figures, converted
-to the schema this repository's scripts read. Nothing here was re-run for the release: these are
-the production results, re-keyed.
+The production results behind every table and figure in the paper, re-keyed to the schema this
+repository's scripts read. Nothing was re-run for the release.
 
 ## cells/: cell-level grids
 

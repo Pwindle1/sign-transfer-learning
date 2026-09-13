@@ -1,67 +1,97 @@
-# paper_results: every number in the paper, as JSON
+# signcanon
 
-All files are the cell-level or aggregate outputs behind the paper's tables and figures, converted
-to the schema this repository's scripts read. Nothing here was re-run for the release: these are
-the production results, re-keyed.
+Code and results for *Using Sign Phonology to Improve Few-Shot Cross-Lingual Transfer Learning for
+Sign Language Recognition* (Matteo Lanza), submitted to the Workshop on Sign Language Processing,
+WSLP 2026.
 
-## cells/: cell-level grids
+Pose-based sign language recognisers represent the two hands as separate halves of a skeleton
+graph, so a left-dominant and a right-dominant signer produce the same sign as mirror images.
+Which hand leads is a fact about the signer, not the sign. Dominance canonicalization mirrors any
+training clip whose left hand carries more than 1.2 times the right hand's motion energy, swapping
+the hand blocks and the left/right body nodes and negating x. The mirror is an exact automorphism
+of the skeleton graph, so the operation is lossless. Donors are CTR-GCN models trained on Turkish
+Sign Language (AUTSL) and adapted with k labelled clips per sign to six other sign languages.
 
-One file per (donor seed, recipient frame): `s<seed>_<arm>_<raw|canon>recipients.json`. Each row is
-one cell of one regime:
+## Results
 
-```
-donor               seed of the donor checkpoint (-1 = no-donor baseline)
-arm                 recipe name (see SEEDS.md)
-target              recipient corpus
-k                   support clips per class (1, 5, 10)
-eval_seed           episode seed (0-4 for the headline grid, 0-2 for the mechanism variants)
-method              "full_ft" (fine-tune regime) or "proto" (frozen prototypes)
-accuracy            top-1 accuracy in percent
-n_classes           classes in the episode
-recipient_canonical whether the recipient clips were canonicalized (the canonical donors' native frame)
-split               "signer_disjoint" or "clip_only"
-```
+Transfer, four standard vs four canonical donors, 90-cell grid (6 recipients x k in {1, 5, 10} x
+5 episode seeds), fine-tune accuracy in percent:
 
-`MANIFEST.json` lists every file with its cell count and episode seeds. "Native" frames (the ones
-every headline and variant number uses) are raw recipients for standard, flip-augmentation,
-unconditional-flip and no-donor arms, and canonicalized recipients for every canonicalized donor.
-The non-native files (`s0-3 ... canonrecipients`, `s90/94/12/13 ... rawrecipients`) are the
-off-diagonal cells of the paper's 2×2 (Table 6). The no-donor files carry `accuracy_by_epochs` and
-`epoch_ceiling` (Appendix A.5).
+| recipient | standard | canonical | gain FT | gain proto |
+|---|---|---|---|---|
+| BdSLW60 (Bangla) | 38.33 | 47.83 | +9.50 | +9.86 |
+| INCLUDE (Indian) | 55.62 | 60.85 | +5.23 | +3.95 |
+| LSA64 (Argentinian) | 60.38 | 66.25 | +5.88 | +6.78 |
+| Slovo (Russian) | 33.10 | 40.36 | +7.26 | +5.14 |
+| SSL400 (Sinhala) | 31.01 | 35.59 | +4.58 | +2.93 |
+| WLASL-300 (American) | 13.80 | 17.41 | +3.62 | +2.49 |
+| pooled | 38.70 | 44.72 | +6.01 | +5.19 |
 
-Reproduce the headline (Table 1 / Section 5):
+Noise floor (pooled same-recipe donor spread) 0.80 fine-tune, 1.42 prototypes; 95% CI on the effect
+[+4.62, +7.40] and [+2.73, +7.65]; exact permutation p = 1/70 in both regimes with complete
+separation (every canonical donor above every standard donor). In-language cost on held-out AUTSL
+signers: -0.77 points, 95% CI [-2.77, +1.23].
+
+Donor-training variants with identical data, differing only in which clips are mirrored (54-cell
+grid, fine-tune mean over three donors):
+
+| variant | accuracy | share of canonical gain |
+|---|---|---|
+| natural corpus | 39.01 | 0% |
+| gloss-blocked | 42.42 | 57% |
+| signer-blocked | 42.59 | 60% |
+| random fraction f = 0.568 | 43.69 | 79% |
+| signer-majority | 44.51 | 92% |
+| unconditional flip (every clip mirrored) | 44.58 | 94% |
+| canonical | 44.96 | 100% |
+| flip augmentation p = 0.5 | 45.31 | 106% |
+| random fraction f = 0.20 | 46.92 | 133% |
+
+No-donor baseline (random initialisation, support set only, same 90 cells): 28.10 pooled, below the
+standard donor in 88 of 90 cells.
+
+Tracking census over the seven corpora: 0.12 to 65.1% of clips never have a hand detected, and the
+share of rule-decidable clips whose decision was forced by a missing hand runs from 0.3% (AUTSL) to
+80.7% (LSA64). Restricting the transfer comparison to clips with both hands tracked moves the
+fine-tune effect from +5.72 to +4.77 with separation intact.
+
+## Reproduce the numbers from the shipped results
 
 ```bash
+pip install -e .
 python experiments/compare_donors.py \
   --results paper_results/cells/s{0,1,2,3}_standard_rawrecipients.json \
             paper_results/cells/s{90,94,12,13}_canonical_canonrecipients.json \
-  --control 0 1 2 3 --treatment 90 94 12 13            # add --method proto for the prototype regime
+  --control 0 1 2 3 --treatment 90 94 12 13        # add --method proto for the second regime
+python experiments/audit_tracking.py --corpora data/*.npz   # the census, given the staged corpora
 ```
 
-Any variant against the natural donors on the 54-cell basis, e.g. the unconditional flip:
+`paper_results/README.md` maps every file to the table it feeds.
 
-```bash
-python experiments/compare_donors.py \
-  --results paper_results/cells/s{0,1,2,3}_standard_rawrecipients.json \
-            paper_results/cells/s{43,44,45}_unconditional_flip_rawrecipients.json \
-  --control 0 1 2 3 --treatment 43 44 45 --eval-seeds 0 1 2
+## Contents
+
+```
+src/signcanon/      operator, every variant recipe, census, splits, episodes, adaptation, statistics
+experiments/        train_donor.py, evaluate_transfer.py, compare_donors.py, audit_tracking.py
+paper_results/      every cell-level grid and aggregate in the paper, as JSON
+splits/             donor split and the support/test clips of every episode
+staging/            featurisation, extraction scripts, staging rules, Slovo subset file
+SEEDS.md            seed-to-recipe map (paper Table 8)
+tests/              33 property tests (PYTHONPATH=src pytest)
 ```
 
-## in_language/: the donor's own language
+The recogniser is the official CTR-GCN (Chen et al., 2021), unmodified: clone
+https://github.com/Uason-Chen/CTR-GCN and pass its path as `--ctrgcn-repo`. Each corpus is one
+`.npz` with `X` float32 (N, 2, 32, 49), `y` int (N,), `sg` str (N,); `staging/` documents how the
+published corpora become these files. Pose data is not redistributed.
 
-`held_out_signer_probe.json`: per donor, accuracy of a linear probe on frozen features over the nine
-held-out AUTSL signers (Section 5, "canonicalization has a small cost in the donor's own language").
+Donor training: 35 epochs, SGD lr 0.1, Nesterov momentum 0.9, weight decay 4e-4, batch 256, five
+warm-up epochs then 0.1x decay at 60% and 85%, label smoothing 0.1, nine AUTSL signers held out.
+Recipient adaptation: 30 epochs, SGD lr 0.01, momentum 0.9, weight decay 1e-4, batch 128. Canonical
+donors evaluate on canonicalized recipients (`--canonical`); all other arms on raw recipients.
+The recipe behind each seed is one `train_donor.py` flag, listed in `SEEDS.md`.
 
-## aggregates/: what the tables print
+## Licence
 
-| file | feeds |
-|---|---|
-| `headline_4v4_90cell.json`, `headline_robustness.json`, `per_recipient_4v4.json` | Table 1, Section 5 |
-| `variant_arms_54cell.json`, `variant_couplings.json` | Table 2, Section 6.1 |
-| `tracking_census_and_couplings.json` | Table 3, Section 3, Appendix B.1 (both 0/0 conventions) |
-| `donor_size_scaling.json` | Figure 3, Section 5 |
-| `guard_icc_table.json` | Table 7, Section 6.2 |
-| `selfaudit_fullft_cells.json`, `selfaudit_proto_cells.json` | the well-tracked-only re-scoring, Section 6.2 |
-| `zeroing_probe_*.json` | the zeroing paragraph, Section 6.1 |
-| `mirror_pair_and_audit_followups.json` | the 0.17-point mirror-pair test, Section 3 |
-| `two_implementation_repro.json` | cross-implementation reproducibility, Appendix C |
+MIT for the code in this repository. CTR-GCN and the corpora carry their own licences. Please cite
+the paper (`CITATION.cff`).
