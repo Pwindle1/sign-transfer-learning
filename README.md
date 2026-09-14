@@ -32,23 +32,27 @@ Noise floor (pooled same-recipe donor spread) 0.80 fine-tune, 1.42 prototypes; 9
 separation (every canonical donor above every standard donor). In-language cost on held-out AUTSL
 signers: -0.77 points, 95% CI [-2.77, +1.23].
 
-Donor-training variants with identical data, differing only in which clips are mirrored (54-cell
-grid, fine-tune mean over three donors):
+Donor-training variants with identical data, differing only in which clips are mirrored (paper
+Table 2; 54-cell grid, fine-tune mean over the donors of each arm):
 
 | variant | accuracy | share of canonical gain |
 |---|---|---|
-| natural corpus | 39.01 | 0% |
-| gloss-blocked | 42.42 | 57% |
-| signer-blocked | 42.59 | 60% |
-| random fraction f = 0.568 | 43.69 | 79% |
-| signer-majority | 44.51 | 92% |
-| unconditional flip (every clip mirrored) | 44.58 | 94% |
-| canonical | 44.96 | 100% |
-| flip augmentation p = 0.5 | 45.31 | 106% |
-| random fraction f = 0.20 | 46.92 | 133% |
+| natural corpus | 39.01 +/- 1.05 | 0% |
+| gloss-blocked | 42.42 +/- 0.88 | 57% |
+| signer-blocked | 42.59 +/- 0.19 | 60% |
+| random fraction f = 0.568 | 43.69 +/- 0.51 | 79% |
+| signer-majority | 44.51 +/- 1.63 | 92% |
+| canonical | 44.96 +/- 0.46 | 100% |
+| flip augmentation p = 0.5 | 45.31 +/- 1.52 | 106% |
+| random fraction f = 0.20 | 46.92 +/- 0.67 | 133% |
 
-No-donor baseline (random initialisation, support set only, same 90 cells): 28.10 pooled, below the
-standard donor in 88 of 90 cells.
+A further control mirrors every clip unconditionally, leaving every coupling identical to the
+natural corpus; it reaches 44.58 +/- 1.07, 0.38 points from canonical, inside the seed spread of
+either arm (Section 6.1).
+
+No-donor baseline (random initialisation, support set only, same 90 cells): 28.10 pooled, above
+random selection for every recipient but below the standard donor by 10.6 points on average
+(Appendix A.5).
 
 Tracking census over the seven corpora: 0.12 to 65.1% of clips never have a hand detected, and the
 share of rule-decidable clips whose decision was forced by a missing hand runs from 0.3% (AUTSL) to
