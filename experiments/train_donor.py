@@ -41,9 +41,20 @@ from signcanon.skeleton import MIRROR_PERM
 
 
 def lr_scale(epoch: int, epochs: int) -> float:
+    """Learning-rate multiplier (paper Appendix C.2): five epochs of linear warm-up, then a 0.1x
+    step decay at 60% and 85% of training. The base learning rate is 0.1, so the per-epoch rate is
+    0.1 * lr_scale(epoch, epochs)."""
     if epoch < 5:
         return (epoch + 1) / 5
     return 0.1 ** sum(epoch >= int(epochs * f) for f in (0.6, 0.85))
+
+
+def build_optimizer(params, lr: float = 0.1):
+    """The donor optimizer, exactly as the released checkpoints were trained (Appendix C.2):
+    SGD, Nesterov momentum 0.9, weight decay 4e-4."""
+    import torch
+
+    return torch.optim.SGD(params, lr, momentum=0.9, nesterov=True, weight_decay=4e-4, foreach=False)
 
 
 def main():
@@ -109,9 +120,7 @@ def main():
     targets = torch.tensor(labels)
     val_inputs = to_model_input(corpus.clips[val_idx])
     val_targets = corpus.labels[val_idx]
-    optimizer = torch.optim.SGD(
-        net.parameters(), 0.1, momentum=0.9, nesterov=True, weight_decay=4e-4, foreach=False
-    )
+    optimizer = build_optimizer(net.parameters())
     criterion = torch.nn.CrossEntropyLoss(label_smoothing=args.label_smoothing)
     perm = torch.tensor(MIRROR_PERM)
     flip_gen = torch.Generator().manual_seed(31337 + args.seed)

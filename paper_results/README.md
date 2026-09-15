@@ -62,5 +62,18 @@ held-out AUTSL signers (Section 5, "canonicalization has a small cost in the don
 | `guard_icc_table.json` | Table 7, Section 6.2 |
 | `selfaudit_fullft_cells.json`, `selfaudit_proto_cells.json` | the well-tracked-only re-scoring, Section 6.2 |
 | `zeroing_probe_*.json` | the zeroing paragraph, Section 6.1 |
+
+### zeroing_probe_top1.json (Section 6.1)
+
+Held-out-signer results of the block-zeroing probe, per donor arm and per recipient frame.
+`top1` gives top-1 accuracy in percent: the standard donor reads 76.5 on raw recipients and 62.0
+on canonicalized ones; the canonical donor reads 75.9 in its own (canonicalized) frame and 39.3 on
+raw recipients, so it has learned to expect the action in the right-hand block.
+`action_block_share` gives the fraction of base confidence lost when the action block is zeroed,
+conditioned on where the action is: the standard donor loses 0.80 (raw) and 0.79 (canonicalized),
+indifferent to which block holds the action, while the canonical donor loses 0.82 in its trained
+frame against 0.39 on raw recipients. `zeroing_probe_top1_occluded.json` and
+`zeroing_probe_logit_drops.json` hold the per-block occluded accuracies and raw logit drops.
+
 | `mirror_pair_and_audit_followups.json` | the 0.17-point mirror-pair test, Section 3 |
 | `two_implementation_repro.json` | cross-implementation reproducibility, Appendix C |

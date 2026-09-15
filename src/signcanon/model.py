@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import importlib
 import os
 import sys
 from pathlib import Path
@@ -36,10 +37,27 @@ class Graph:
 
 
 def build_ctrgcn(repo_path: str | Path, num_classes: int):
+    """Build the official CTR-GCN with the 49-node skeleton graph injected into an upstream checkout.
+
+    CTR-GCN resolves the graph from the string "graph.mediapipe49.Graph" by importing the `graph`
+    package and reading the `mediapipe49` submodule off it. We write that submodule into the
+    checkout at call time, so the binding has to be made explicit: ensure `graph/` is a package,
+    invalidate the import caches so a freshly written file is seen, drop any stale cached module
+    from a previous build, then import it and register it under `graph.mediapipe49`. Without this a
+    clean checkout (no `graph/__init__.py`, or a `graph` package already imported) fails to find the
+    module, and a second build in the same process silently reuses the first graph."""
     repo = Path(repo_path).resolve()
-    (repo / "graph" / "mediapipe49.py").write_text(_GRAPH_MODULE)
+    graph_dir = repo / "graph"
+    graph_dir.mkdir(exist_ok=True)
+    (graph_dir / "__init__.py").touch(exist_ok=True)
+    (graph_dir / "mediapipe49.py").write_text(_GRAPH_MODULE)
     if str(repo) not in sys.path:
         sys.path.insert(0, str(repo))
+    importlib.invalidate_caches()
+    for stale in ("graph.mediapipe49", "graph"):
+        sys.modules.pop(stale, None)
+    module = importlib.import_module("graph.mediapipe49")
+    sys.modules["graph.mediapipe49"] = module
     cwd = os.getcwd()
     os.chdir(repo)
     try:

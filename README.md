@@ -29,8 +29,10 @@ Transfer, four standard vs four canonical donors, 90-cell grid (6 recipients x k
 
 Noise floor (pooled same-recipe donor spread) 0.80 fine-tune, 1.42 prototypes; 95% CI on the effect
 [+4.62, +7.40] and [+2.73, +7.65]; exact permutation p = 1/70 in both regimes with complete
-separation (every canonical donor above every standard donor). In-language cost on held-out AUTSL
-signers: -0.77 points, 95% CI [-2.77, +1.23].
+separation (every canonical donor above every standard donor). On held-out AUTSL signers the
+standard donors score 75.8 +/- 1.5 and the canonical donors 75.0 +/- 0.5, an in-language cost of
+-0.77 points, 95% CI [-2.77, +1.23]. Transfer grows with donor size at 5.82 points per e-fold, the
+standard arm's log-linear fit over 7.9k to 26.2k donor clips.
 
 Donor-training variants with identical data, differing only in which clips are mirrored (paper
 Table 2; 54-cell grid, fine-tune mean over the donors of each arm):
@@ -75,7 +77,7 @@ python experiments/audit_tracking.py --corpora data/*.npz   # the census, given 
 ## Contents
 
 ```
-src/signcanon/      operator, every variant recipe, census, splits, episodes, adaptation, statistics
+src/signcanon/      operator, variant recipes, whole-clip loss census (validity.py), splits, episodes, adaptation, statistics
 experiments/        train_donor.py, evaluate_transfer.py, compare_donors.py, audit_tracking.py
 paper_results/      every cell-level grid and aggregate in the paper, as JSON
 splits/             donor split and the support/test clips of every episode

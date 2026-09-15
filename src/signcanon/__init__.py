@@ -11,11 +11,13 @@ from .canon import (
     flip_decisions,
     gloss_blocked,
     hand_energies,
+    is_decidable,
     robust_canonicalize,
     robust_flip_decisions,
     signer_blocked,
     signer_majority,
     unconditional_flip,
+    weak_hand_share,
 )
 from .data import (
     Corpus,

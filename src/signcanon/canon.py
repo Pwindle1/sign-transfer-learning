@@ -20,6 +20,23 @@ def flip_decisions(clips: np.ndarray, threshold: float = 1.2) -> np.ndarray:
     return left > threshold * right
 
 
+def weak_hand_share(clips: np.ndarray) -> np.ndarray:
+    """The weak-hand share w = min(e_L, e_R) / max(e_L, e_R) (paper Section 3). A clip in which
+    neither hand was tracked has energies 0/0 and is assigned w = 1.0 (undecidable)."""
+    left, right = hand_energies(clips)
+    hi = np.maximum(left, right)
+    lo = np.minimum(left, right)
+    with np.errstate(divide="ignore", invalid="ignore"):
+        return np.where(hi > 0, lo / np.where(hi > 0, hi, 1.0), 1.0)
+
+
+def is_decidable(clips: np.ndarray, threshold: float = 0.5) -> np.ndarray:
+    """The paper's decidability: a clip is decidable when one hand clearly leads, i.e. the weak-hand
+    share is below `threshold` (0.5). This is distinct from the co-visible-frame gate used by
+    robust_flip_decisions, which is about how many frames saw both hands, not the energy ratio."""
+    return weak_hand_share(clips) < threshold
+
+
 def canonicalize(clips: np.ndarray, threshold: float = 1.2) -> np.ndarray:
     """Dominance canonicalization — the operator every headline number uses (paper Section 3)."""
     flip = flip_decisions(clips, threshold)
@@ -117,8 +134,10 @@ def signer_majority(clips: np.ndarray, signers: np.ndarray, threshold: float = 1
 def robust_flip_decisions(
     clips: np.ndarray, threshold: float = 1.2, min_covisible: int = 8
 ) -> tuple[np.ndarray, np.ndarray]:
-    """Auxiliary tool, NOT used for any number in the paper: judge dominance only from frames in
-    which both hands are present, and abstain below min_covisible such frames."""
+    """Auxiliary tool, NOT used for any number in the paper. Judge dominance only from frames in
+    which both hands are co-visible, and abstain when fewer than min_covisible such frames exist.
+    The second return value is the co-visible-frame gate (`covisible_ok`), which is a tracking
+    quantity and NOT the paper's decidability (see is_decidable)."""
     left_seen = frame_presence(clips, LEFT_HAND)
     right_seen = frame_presence(clips, RIGHT_HAND)
     covisible = left_seen & right_seen
@@ -127,15 +146,15 @@ def robust_flip_decisions(
     mask = pair_ok[:, None, :, None]
     left = (motion[:, :, :, LEFT_HAND] * mask).sum(axis=(1, 2, 3))
     right = (motion[:, :, :, RIGHT_HAND] * mask).sum(axis=(1, 2, 3))
-    decidable = pair_ok.sum(axis=1) >= min_covisible
-    flip = decidable & (left > threshold * right)
-    return flip, decidable
+    covisible_ok = pair_ok.sum(axis=1) >= min_covisible
+    flip = covisible_ok & (left > threshold * right)
+    return flip, covisible_ok
 
 
 def robust_canonicalize(
     clips: np.ndarray, threshold: float = 1.2, min_covisible: int = 8
 ) -> tuple[np.ndarray, np.ndarray]:
-    flip, decidable = robust_flip_decisions(clips, threshold, min_covisible)
+    flip, covisible_ok = robust_flip_decisions(clips, threshold, min_covisible)
     out = clips.copy()
     out[flip] = mirror(clips[flip])
-    return out, decidable
+    return out, covisible_ok

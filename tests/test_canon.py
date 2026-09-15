@@ -44,8 +44,8 @@ def test_missing_right_hand_forces_a_flip():
 def test_robust_rule_abstains_when_hands_are_never_covisible():
     clips = make_clip(LEFT_HAND, np.random.default_rng(4))
     clips[:, :, :, RIGHT_HAND] = 0.0
-    flips, decidable = robust_flip_decisions(clips)
-    assert not decidable.any()
+    flips, covisible_ok = robust_flip_decisions(clips)
+    assert not covisible_ok.any()
     assert not flips.any()
 
 
@@ -55,8 +55,8 @@ def test_robust_rule_matches_naive_rule_on_clean_clips():
     clips[:, :, :, LEFT_HAND] = rng.normal(0, 0.05, size=(8, 2, 32, 21)).cumsum(axis=2)
     clips[:, :, :, RIGHT_HAND] = rng.normal(0, 0.01, size=(8, 2, 32, 21)).cumsum(axis=2)
     naive = flip_decisions(clips)
-    robust, decidable = robust_flip_decisions(clips)
-    assert decidable.all()
+    robust, covisible_ok = robust_flip_decisions(clips)
+    assert covisible_ok.all()
     assert np.array_equal(naive, robust)
 
 
@@ -68,3 +68,26 @@ def test_controlled_mixture_hits_the_requested_rate():
         mixed = controlled_mixture(clips, fraction, seed=0)
         left, right = hand_energies(mixed)
         assert abs((left > right).mean() - fraction) < 0.05
+
+
+def test_weak_hand_share_and_decidability_follow_the_paper_definition():
+    from signcanon.canon import is_decidable, weak_hand_share
+
+    rng = np.random.default_rng(7)
+    one_handed = make_clip(RIGHT_HAND, rng)          # one hand clearly leads -> w near 0, decidable
+    two_handed = np.zeros((4, 2, 32, 49), np.float32)
+    motion = rng.normal(0, 0.05, size=(4, 2, 32, 21)).cumsum(axis=2)
+    two_handed[:, :, :, LEFT_HAND] = motion          # both hands equal energy -> w near 1, undecidable
+    two_handed[:, :, :, RIGHT_HAND] = motion
+    assert (weak_hand_share(one_handed) < 0.5).all()
+    assert is_decidable(one_handed).all()
+    assert (weak_hand_share(two_handed) > 0.5).all()
+    assert not is_decidable(two_handed).any()
+
+
+def test_untracked_clip_is_undecidable():
+    from signcanon.canon import is_decidable, weak_hand_share
+
+    dead = np.zeros((2, 2, 32, 49), np.float32)       # 0/0 energies
+    assert (weak_hand_share(dead) == 1.0).all()
+    assert not is_decidable(dead).any()
