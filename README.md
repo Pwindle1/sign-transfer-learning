@@ -1,8 +1,8 @@
 # signcanon
 
 Code and results for *Using Sign Phonology to Improve Few-Shot Cross-Lingual Transfer Learning for
-Sign Language Recognition* (Matteo Lanza), submitted to the Workshop on Sign Language Processing,
-WSLP 2026.
+Sign Language Recognition* (Matteo Lanza), Proceedings of the Second Workshop on Sign Language
+Processing (WSLP 2026), Budapest, pages 96 to 110. Paper: https://aclanthology.org/2026.wslp-1.10/
 
 Pose-based sign language recognisers represent the two hands as separate halves of a skeleton
 graph, so a left-dominant and a right-dominant signer produce the same sign as mirror images.

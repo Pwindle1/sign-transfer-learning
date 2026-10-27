@@ -630,10 +630,10 @@
   ]
  },
  {
-  "file": "s91_all_left_canonrecipients.json",
+  "file": "s91_all_left_allleftrecipients.json",
   "donor": 91,
   "arm": "all_left",
-  "recipient_frame": "canonical",
+  "recipient_frame": "all_left",
   "native": true,
   "n_cells": 90,
   "n_recipients": 6,
@@ -643,7 +643,8 @@
    2,
    3,
    4
-  ]
+  ],
+  "note": "mirror-pair arm: donor all-left (CANON_F=1.0) evaluated on recipients also mirrored to all-left (CANON_F=1.0 at eval), the exact mirror image of canonical-on-canonicalized; not canonicalized recipients"
  },
  {
   "file": "s92_subsample_7910_standard_rawrecipients.json",

@@ -18,6 +18,7 @@ method              "full_ft" (fine-tune regime) or "proto" (frozen prototypes)
 accuracy            top-1 accuracy in percent
 n_classes           classes in the episode
 recipient_canonical whether the recipient clips were canonicalized (the canonical donors' native frame)
+recipient_frame     present only where the recipient frame is neither raw nor canonicalized: `all_left` for the s91 mirror-pair arm, whose recipients were mirrored wholesale to left (the mirror image of the canonicalized frame)
 split               "signer_disjoint" or "clip_only"
 ```
 

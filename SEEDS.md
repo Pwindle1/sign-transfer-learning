@@ -7,7 +7,7 @@ part of this repository (see `paper_results/` for every number they produced).
 |---|---|---|---|
 | 0-3 | standard donors (no transform) | *(none)* | raw |
 | 90, 94, 12, 13 | dominance canonicalization (the canonical arm throughout) | `--canonical` | canonicalized |
-| 91 | all-left mirror-image canonical donor (Section 3 mirror-pair test) | `--all-left` | canonicalized |
+| 91 | all-left mirror-image canonical donor (Section 3 mirror-pair test) | `--all-left` | all-left (recipients mirrored wholesale; the mirror image of the canonicalized frame) |
 | 92-93 | second donor-subsample pair at 7,910 clips (release only) | `--subsample 7910` (+ `--canonical` for 93) | as arm |
 | 40-42 | per-epoch flip augmentation, p = 0.5 | `--flip-aug 0.5` | raw |
 | 43-45 | unconditional flip (every clip mirrored, no gate) | `--unconditional-flip` | raw |

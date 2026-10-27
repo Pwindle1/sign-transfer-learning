@@ -13,5 +13,21 @@ preferred-citation:
   authors:
     - family-names: Lanza
       given-names: Matteo
-  collection-title: "Proceedings of the Workshop on Sign Language Processing (WSLP 2026)"
+  collection-title: "Proceedings of the Second Workshop on Sign Language Processing"
+  collection-type: proceedings
+  publisher:
+    name: "Association for Computational Linguistics"
+  conference:
+    name: "Second Workshop on Sign Language Processing (WSLP 2026)"
+    city: Budapest
+    country: HU
+  month: 10
   year: 2026
+  start: 96
+  end: 110
+  isbn: "979-8-89176-488-0"
+  url: "https://aclanthology.org/2026.wslp-1.10/"
+  identifiers:
+    - type: other
+      value: "2026.wslp-1.10"
+      description: "ACL Anthology ID"
